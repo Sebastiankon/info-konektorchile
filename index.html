@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konektor Chile - Revolución Digital en el Metaverso</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .orbitron {
+            font-family: 'Orbitron', monospace;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 50%, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #1a1a2e 100%);
+            animation: bgShift 20s ease-in-out infinite;
+        }
+
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: float 25s ease-in-out infinite;
+        }
+
+        @keyframes bgShift {
+            0%, 100% { background: radial-gradient(circle at 20% 50%, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #1a1a2e 100%); }
+            25% { background: radial-gradient(circle at 80% 20%, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #1a1a2e 100%); }
+            50% { background: radial-gradient(circle at 50% 80%, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #1a1a2e 100%); }
+            75% { background: radial-gradient(circle at 10% 70%, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #1a1a2e 100%); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* 3D Cards */
+        .card-3d {
+            perspective: 1000px;
+            transition: all 0.3s ease;
+        }
+
+        .card-3d:hover .card-inner {
+            transform: rotateY(10deg) rotateX(5deg);
+        }
+
+        .card-inner {
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease;
+        }
+
+        /* Glowing Effects */
+        .glow-blue {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+
+        .glow-purple {
+            box-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
+        }
+
+        .glow-cyan {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+        }
+
+        /* Floating Elements */
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+
+        .floating-delayed {
+            animation: floating 6s ease-in-out infinite 2s;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Pulse Animation */
+        .pulse-glow {
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8), 0 0 60px rgba(59, 130, 246, 0.4); }
+        }
+
+        /* Hero 3D Text */
+        .hero-text {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6, #06b6d4);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Morphing Shapes */
+        .morphing-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: morph 15s ease-in-out infinite;
+        }
+
+        @keyframes morph {
+            0%, 100% { 
+                border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+                transform: rotate(0deg) scale(1);
+            }
+            25% { 
+                border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
+                transform: rotate(90deg) scale(1.2);
+            }
+            50% { 
+                border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;
+                transform: rotate(180deg) scale(0.8);
+            }
+            75% { 
+                border-radius: 30% 70% 70% 30% / 40% 60% 40% 60%;
+                transform: rotate(270deg) scale(1.1);
+            }
+        }
+
+        /* Number Counter Animation */
+        .counter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #3b82f6;
+        }
+
+        /* Particle System */
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #3b82f6;
+            border-radius: 50%;
+            animation: particle 20s linear infinite;
+        }
+
+        @keyframes particle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Form Styles */
+        .form-container {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #3b82f6;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-text {
+                font-size: 2.5rem;
+            }
+            .counter {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll Reveal */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Particle System -->
+    <div id="particles"></div>
+    
+    <!-- Morphing Shapes -->
+    <div class="morphing-shape w-64 h-64 bg-blue-500 top-20 left-10"></div>
+    <div class="morphing-shape w-48 h-48 bg-purple-500 top-1/2 right-20" style="animation-delay: 5s;"></div>
+    <div class="morphing-shape w-32 h-32 bg-cyan-500 bottom-20 left-1/3" style="animation-delay: 10s;"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black bg-opacity-20 backdrop-filter backdrop-blur-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <span class="orbitron text-2xl font-bold text-blue-400">KONEKTOR</span>
+                    <span class="ml-2 text-gray-400">CHILE</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#servicios" class="text-gray-300 hover:text-blue-400 transition-colors">Servicios</a>
+                    <a href="#insights" class="text-gray-300 hover:text-blue-400 transition-colors">Insights</a>
+                    <a href="#contacto" class="text-gray-300 hover:text-blue-400 transition-colors">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="floating">
+                <h1 class="hero-text orbitron mb-8">
+                    LA REVOLUCIÓN DIGITAL<br>
+                    <span class="text-cyan-400">YA ESTÁ AQUÍ</span>
+                </h1>
+            </div>
+            <div class="floating-delayed">
+                <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto">
+                    Somos la empresa #1 para ingresar al <span class="text-blue-400 font-bold">Metaverso</span> y liderar la transformación con <span class="text-purple-400 font-bold">Inteligencia Artificial</span> en LATAM
+                </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="#contacto" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-semibold text-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 pulse-glow">
+                    <i class="fas fa-rocket mr-2"></i>Transformar Mi Empresa
+                </a>
+                <a href="#insights" class="px-8 py-4 border-2 border-blue-500 rounded-lg font-semibold text-lg hover:bg-blue-500 hover:bg-opacity-20 transition-all duration-300">
+                    <i class="fas fa-chart-line mr-2"></i>Ver Casos de Éxito
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center card-3d">
+                    <div class="card-inner">
+                        <div class="counter" data-target="21200000">0</div>
+                        <p class="text-gray-400">Usuarios en Roblox</p>
+                        <p class="text-sm text-blue-400">en un fin de semana</p>
+                    </div>
+                </div>
+                <div class="text-center card-3d">
+                    <div class="card-inner">
+                        <div class="counter" data-target="640">0</div>
+                        <p class="text-gray-400">% Crecimiento VR</p>
+                        <p class="text-sm text-purple-400">en LATAM</p>
+                    </div>
+                </div>
+                <div class="text-center card-3d">
+                    <div class="card-inner">
+                        <div class="counter" data-target="200">0</div>
+                        <p class="text-gray-400">% ROI Promedio</p>
+                        <p class="text-sm text-cyan-400">en 18 meses</p>
+                    </div>
+                </div>
+                <div class="text-center card-3d">
+                    <div class="card-inner">
+                        <div class="counter" data-target="97800000">0</div>
+                        <p class="text-gray-400">Usuarios Activos</p>
+                        <p class="text-sm text-green-400">diarios globales</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-20 scroll-reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold orbitron mb-6">
+                    Nuestros <span class="text-blue-400">Servicios</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Transformamos empresas con tecnologías de vanguardia
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Metaverso Service -->
+                <div class="card-3d group">
+                    <div class="card-inner bg-gradient-to-br from-blue-900 to-blue-700 p-8 rounded-2xl glow-blue">
+                        <div class="text-center">
+                            <i class="fas fa-cube text-5xl text-blue-400 mb-6 floating"></i>
+                            <h3 class="text-2xl font-bold mb-4 orbitron">METAVERSO</h3>
+                            <p class="text-gray-300 mb-6">
+                                Llevamos tu marca al universo digital donde viven 97.8M de usuarios activos diarios
+                            </p>
+                            <ul class="text-left space-y-2 text-sm">
+                                <li><i class="fas fa-check text-blue-400 mr-2"></i>Experiencias inmersivas en Roblox</li>
+                                <li><i class="fas fa-check text-blue-400 mr-2"></i>Mundos virtuales personalizados</li>
+                                <li><i class="fas fa-check text-blue-400 mr-2"></i>Estrategias Gen Z y Alpha</li>
+                                <li><i class="fas fa-check text-blue-400 mr-2"></i>ROI comprobado +200%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Service -->
+                <div class="card-3d group">
+                    <div class="card-inner bg-gradient-to-br from-purple-900 to-purple-700 p-8 rounded-2xl glow-purple">
+                        <div class="text-center">
+                            <i class="fas fa-brain text-5xl text-purple-400 mb-6 floating-delayed"></i>
+                            <h3 class="text-2xl font-bold mb-4 orbitron">INTELIGENCIA ARTIFICIAL</h3>
+                            <p class="text-gray-300 mb-6">
+                                Implementamos IA de última generación para automatizar y optimizar tu negocio
+                            </p>
+                            <ul class="text-left space-y-2 text-sm">
+                                <li><i class="fas fa-check text-purple-400 mr-2"></i>Claude Code para desarrollo</li>
+                                <li><i class="fas fa-check text-purple-400 mr-2"></i>Midjourney para contenido</li>
+                                <li><i class="fas fa-check text-purple-400 mr-2"></i>Automatización de procesos</li>
+                                <li><i class="fas fa-check text-purple-400 mr-2"></i>Capacitación especializada</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Digital Transformation -->
+                <div class="card-3d group">
+                    <div class="card-inner bg-gradient-to-br from-cyan-900 to-cyan-700 p-8 rounded-2xl glow-cyan">
+                        <div class="text-center">
+                            <i class="fas fa-rocket text-5xl text-cyan-400 mb-6 floating"></i>
+                            <h3 class="text-2xl font-bold mb-4 orbitron">TRANSFORMACIÓN DIGITAL</h3>
+                            <p class="text-gray-300 mb-6">
+                                Consultoría integral para liderar la revolución tecnológica en LATAM
+                            </p>
+                            <ul class="text-left space-y-2 text-sm">
+                                <li><i class="fas fa-check text-cyan-400 mr-2"></i>Estrategia digital completa</li>
+                                <li><i class="fas fa-check text-cyan-400 mr-2"></i>Implementación tecnológica</li>
+                                <li><i class="fas fa-check text-cyan-400 mr-2"></i>Capacitación de equipos</li>
+                                <li><i class="fas fa-check text-cyan-400 mr-2"></i>Soporte continuo 24/7</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section id="insights" class="py-20 scroll-reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold orbitron mb-6">
+                    Insights <span class="text-purple-400">Tecnológicos</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Las últimas tendencias que están revolucionando el mundo digital
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Midjourney Insight -->
+                <div class="card-3d">
+                    <div class="card-inner bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-blue-500 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-video text-blue-400 text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold">Revolución IA Video</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Midjourney lanza generación de video por IA que transforma imágenes en clips animados en segundos
+                        </p>
+                        <div class="flex items-center text-sm text-gray-400">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>Innovación reciente</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Roblox Numbers -->
+                <div class="card-3d">
+                    <div class="card-inner bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-purple-500 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-gamepad text-purple-400 text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold">Roblox Rompe Récords</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            21.2 millones de usuarios en una experiencia superan a Netflix y Twitch juntos
+                        </p>
+                        <div class="flex items-center text-sm text-gray-400">
+                            <i class="fas fa-chart-line mr-2"></i>
+                            <span>Crecimiento exponencial</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Claude Code -->
+                <div class="card-3d">
+                    <div class="card-inner bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-cyan-500 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-code text-cyan-400 text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold">Claude Code Transforma</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            2-4x más velocidad en desarrollo y 80% menos tiempo en debugging con IA
+                        </p>
+                        <div class="flex items-center text-sm text-gray-400">
+                            <i class="fas fa-rocket mr-2"></i>
+                            <span>Productividad extrema</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- XR Revolution -->
+                <div class="card-3d">
+                    <div class="card-inner bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-green-500 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-vr-cardboard text-green-400 text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold">XR Week 2025</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Mercado XR crece de $253B a $1.6T para 2032, LATAM tiene 3% market share
+                        </p>
+                        <div class="flex items-center text-sm text-gray-400">
+                            <i class="fas fa-globe mr-2"></i>
+                            <span>Oportunidad masiva</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Chips -->
+                <div class="card-3d">
+                    <div class="card-inner bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-yellow-500 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-microchip text-yellow-400 text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold">Chips IA No Binarios</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            China inicia producción masiva del primer chip de IA no binario del mundo
+                        </p>
+                        <div class="flex items-center text-sm text-gray-400">
+                            <i class="fas fa-bolt mr-2"></i>
+                            <span>Revolución hardware</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Knowledge -->
+                <div class="card-3d">
+                    <div class="card-inner bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-red-500 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-lightbulb text-red-400 text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold">IA Genera Conocimiento</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Sam Altman anuncia IA que crea insights novedosos, no solo procesa información
+                        </p>
+                        <div class="flex items-center text-sm text-gray-400">
+                            <i class="fas fa-brain mr-2"></i>
+                            <span>Próxima generación</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-20 scroll-reveal">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold orbitron mb-6">
+                    ¿Listo para la <span class="text-blue-400">Transformación</span>?
+                </h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Déjanos tus datos y te contactaremos para una consulta personalizada sobre cómo implementar estas tecnologías en tu empresa
+                </p>
+            </div>
+            
+            <div class="form-container rounded-2xl p-8 max-w-2xl mx-auto">
+                <form id="contactForm" class="space-y-6">
+                    <div>
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required
+                               class="form-input w-full px-4 py-3 rounded-lg focus:outline-none">
+                    </div>
+                    
+                    <div>
+                        <input type="email" id="email" name="email" placeholder="Correo electrónico" required
+                               class="form-input w-full px-4 py-3 rounded-lg focus:outline-none">
+                    </div>
+                    
+                    <div>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" required
+                               class="form-input w-full px-4 py-3 rounded-lg focus:outline-none">
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <input type="checkbox" id="acepto" name="acepto" required
+                               class="mt-1 mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                        <label for="acepto" class="text-sm text-gray-300">
+                            Acepto las condiciones de tratamiento de datos personales y autorizo el contacto comercial
+                        </label>
+                    </div>
+                    
+                    <button type="submit" 
+                            class="w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-semibold text-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 pulse-glow">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        Solicitar Consulta Gratuita
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Contact Info -->
+            <div class="text-center mt-12">
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope text-blue-400 mr-3"></i>
+                        <span class="text-gray-300">sebastian@konektorgroup.com</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-phone text-purple-400 mr-3"></i>
+                        <span class="text-gray-300">+56 9 58947607</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex justify-center items-center mb-6">
+                    <span class="orbitron text-3xl font-bold text-blue-400">KONEKTOR</span>
+                    <span class="ml-2 text-gray-400">CHILE</span>
+                </div>
+                <p class="text-gray-400 mb-6">
+                    Liderando la revolución digital en LATAM con Metaverso e Inteligencia Artificial
+                </p>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://www.instagram.com/konektorchile/" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="mailto:sebastian@konektorgroup.com" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </a>
+                    <a href="tel:+56958947607" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i class="fas fa-phone text-2xl"></i>
+                    </a>
+                </div>
+                <div class="mt-8 pt-8 border-t border-gray-800 text-gray-500 text-sm">
+                    © 2025 Konektor Chile. Todos los derechos reservados.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Particle System
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000; // 2 seconds
+                const increment = target / (duration / 16); // 60fps
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.floor(current).toLocaleString();
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target.toLocaleString();
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+
+        // Scroll Reveal Animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.scroll-reveal');
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('revealed');
+                }
+            });
+        }
+
+        // Intersection Observer for Counters
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.target.classList.contains('counter')) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {
+                nombre: formData.get('nombre'),
+                email: formData.get('email'),
+                telefono: formData.get('telefono'),
+                acepto: formData.get('acepto')
+            };
+            
+            // HubSpot Form Submission
+            fetch('https://api.hsforms.com/submissions/v3/integration/submit/23647212/aw9Kug4CRx6ynihlAya01ge2ub0', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    fields: [
+                        { name: 'firstname', value: data.nombre },
+                        { name: 'email', value: data.email },
+                        { name: 'phone', value: data.telefono }
+                    ],
+                    context: {
+                        pageUri: window.location.href,
+                        pageName: 'Konektor Chile Landing Page'
+                    }
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('¡Gracias! Nos pondremos en contacto contigo pronto.');
+                this.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Hubo un error al enviar el formulario. Por favor, intenta de nuevo.');
+            });
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            
+            // Observe counters
+            document.querySelectorAll('.counter').forEach(counter => {
+                observer.observe(counter);
+            });
+            
+            // Scroll reveal
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Initial check
+        });
+
+        // Dynamic Background Color Change
+        let hue = 0;
+        setInterval(() => {
+            hue = (hue + 1) % 360;
+            document.documentElement.style.setProperty('--dynamic-hue', hue);
+        }, 100);
+    </script>
+</body>
+</html>
