@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konektor Chile - Líderes en Metaverso e Innovación Tecnológica</title>
+    <title>Konektor Chile - Revolución Digital en el Metaverso</title>
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/23647212.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/23647212.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
@@ -18,13 +18,14 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
             color: white;
             overflow-x: hidden;
             line-height: 1.6;
         }
 
-        .particles-container {
+        /* Partículas 3D flotantes */
+        .particles {
             position: fixed;
             top: 0;
             left: 0;
@@ -38,461 +39,680 @@
             position: absolute;
             width: 2px;
             height: 2px;
-            background: #00f5ff;
+            background: linear-gradient(45deg, #00f5ff, #8a2be2);
             border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
+            animation: float 20s infinite linear;
             opacity: 0.7;
+            box-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
+            0% { transform: translateY(100vh) translateX(0px) rotateZ(0deg); }
+            100% { transform: translateY(-100vh) translateX(100px) rotateZ(360deg); }
         }
 
-        .geometric-shape {
-            position: absolute;
-            border: 1px solid rgba(0, 245, 255, 0.2);
-            animation: rotate 20s linear infinite;
+        /* Efectos parallax */
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle at 20% 80%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(255, 0, 150, 0.05) 0%, transparent 50%);
+            z-index: 0;
+            animation: parallaxMove 30s ease-in-out infinite;
         }
 
-        .shape-1 {
-            width: 100px;
-            height: 100px;
-            top: 10%;
-            left: 10%;
-            transform: rotate(45deg);
+        @keyframes parallaxMove {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(-20px, -20px) rotate(1deg); }
+            50% { transform: translate(20px, -10px) rotate(-1deg); }
+            75% { transform: translate(-10px, 20px) rotate(0.5deg); }
         }
 
-        .shape-2 {
-            width: 150px;
-            height: 150px;
-            top: 60%;
-            right: 10%;
-            border-radius: 50%;
+        /* Contenedor principal */
+        .main-content {
+            position: relative;
+            z-index: 2;
         }
 
-        .shape-3 {
-            width: 80px;
-            height: 80px;
-            top: 30%;
-            right: 30%;
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-            background: rgba(138, 43, 226, 0.1);
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .glass-morphism {
-            background: rgba(255, 255, 255, 0.05);
+        /* Hero section con efectos 3D */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
         }
 
-        .neon-glow {
-            box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+        .hero-content {
+            max-width: 1200px;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 30px;
+            border: 1px solid rgba(0, 245, 255, 0.2);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateZ(0);
+            animation: heroFloat 6s ease-in-out infinite;
         }
 
-        .gradient-text {
-            background: linear-gradient(45deg, #00f5ff, #8a2be2, #ff6b6b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
         .hero-title {
             font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 900;
-            text-align: center;
+            background: linear-gradient(135deg, #00f5ff 0%, #8a2be2 50%, #ff6b9d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
             animation: titleGlow 3s ease-in-out infinite alternate;
         }
 
         @keyframes titleGlow {
-            from { text-shadow: 0 0 20px rgba(0, 245, 255, 0.5); }
-            to { text-shadow: 0 0 40px rgba(138, 43, 226, 0.7); }
+            0% { filter: brightness(1); }
+            100% { filter: brightness(1.2); }
         }
 
-        .service-card {
-            transform-style: preserve-3d;
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #00f5ff;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            opacity: 0.9;
         }
 
-        .service-card:hover {
-            transform: rotateY(10deg) rotateX(10deg) translateZ(50px);
-            box-shadow: 0 25px 50px rgba(0, 245, 255, 0.2);
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .floating-element {
-            animation: floatingAnimation 6s ease-in-out infinite;
-        }
-
-        @keyframes floatingAnimation {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-30px); }
-        }
-
-        .parallax-section {
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-
+        /* Botones 3D */
         .btn-3d {
-            position: relative;
-            transform-style: preserve-3d;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background: linear-gradient(45deg, #00f5ff, #8a2be2);
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(135deg, #00f5ff 0%, #8a2be2 100%);
             color: white;
-            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 0.5rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+            box-shadow: 0 10px 30px rgba(0, 245, 255, 0.3);
+            border: none;
             cursor: pointer;
+            position: relative;
             overflow: hidden;
         }
 
-        .btn-3d:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(0, 245, 255, 0.4);
-        }
-
-        .btn-3d:before {
+        .btn-3d::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s;
         }
 
-        .btn-3d:hover:before {
+        .btn-3d:hover::before {
             left: 100%;
         }
 
-        .form-container {
+        .btn-3d:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 245, 255, 0.4);
+        }
+
+        /* Sección de servicios con efectos 3D */
+        .services-section {
+            padding: 8rem 2rem;
             position: relative;
-            z-index: 10;
-            max-width: 500px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem;
         }
 
-        .form-field {
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
+            padding: 3rem;
+            text-align: center;
+            border: 1px solid rgba(0, 245, 255, 0.2);
+            backdrop-filter: blur(20px);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 245, 255, 0.1) 0%, rgba(138, 43, 226, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            border-color: #00f5ff;
+            box-shadow: 0 30px 60px rgba(0, 245, 255, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
             margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #00f5ff, #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .form-field label {
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #00f5ff;
+        }
+
+        .service-description {
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        /* Blog section */
+        .blog-section {
+            padding: 8rem 2rem;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 245, 255, 0.1);
+            backdrop-filter: blur(15px);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            transform: translateZ(0);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            border-color: #00f5ff;
+            box-shadow: 0 20px 40px rgba(0, 245, 255, 0.2);
+        }
+
+        .blog-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #00f5ff;
+        }
+
+        .blog-excerpt {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .blog-date {
+            color: #8a2be2;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Formulario de contacto con efectos premium */
+        .contact-section {
+            padding: 8rem 2rem;
+            position: relative;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
+            padding: 4rem;
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 245, 255, 0.05) 0%, rgba(138, 43, 226, 0.05) 100%);
+            pointer-events: none;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #00f5ff, #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             color: #00f5ff;
             font-weight: 600;
+            font-size: 1rem;
         }
 
-        .form-field input {
+        .form-group input {
             width: 100%;
-            padding: 1rem;
+            padding: 1.2rem 1.5rem;
             border: 2px solid rgba(0, 245, 255, 0.3);
             border-radius: 15px;
             background: rgba(255, 255, 255, 0.05);
             color: white;
             font-size: 1rem;
             transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
         }
 
-        .form-field input:focus {
+        .form-group input:focus {
             outline: none;
             border-color: #00f5ff;
-            box-shadow: 0 0 25px rgba(0, 245, 255, 0.4);
-            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
         }
 
-        .form-field input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
         }
 
-        .pulse-animation {
-            animation: pulse 2s infinite;
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
         }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 245, 255, 0.4); }
-            70% { box-shadow: 0 0 0 20px rgba(0, 245, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 245, 255, 0); }
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 1rem;
+            transform: scale(1.2);
+        }
+
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #00f5ff 0%, #8a2be2 100%);
+            color: white;
+            border: none;
+            padding: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .form-submit:hover::before {
+            left: 100%;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 245, 255, 0.4);
         }
 
         .success-message {
-            background: linear-gradient(45deg, #00ff88, #00f5ff);
-            color: #0a0a0a;
-            padding: 1.5rem;
+            background: linear-gradient(135deg, #00ff88, #00f5ff);
+            color: #0a0a1a;
+            padding: 2rem;
             border-radius: 15px;
             text-align: center;
             font-weight: 700;
-            margin-top: 1rem;
+            margin-top: 2rem;
             display: none;
-            animation: successSlide 0.5s ease-out;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
         }
 
-        @keyframes successSlide {
-            from { transform: translateY(-20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
         }
 
-        .blog-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(0, 245, 255, 0.2);
-            border-radius: 20px;
-            padding: 1.5rem;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
-            perspective: 1000px;
+        .footer-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #00f5ff;
+            margin-bottom: 1rem;
         }
 
-        .blog-card:hover {
-            transform: rotateX(5deg) rotateY(5deg) translateZ(20px);
-            border-color: #00f5ff;
-            box-shadow: 0 15px 30px rgba(0, 245, 255, 0.2);
+        .footer-content {
+            opacity: 0.8;
+            line-height: 1.8;
         }
 
+        /* Animaciones de entrada */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; }
-            .form-container { padding: 1rem; }
-            .service-card:hover { transform: none; }
+            .hero-content {
+                padding: 1.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                padding: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Partículas de fondo -->
-    <div class="particles-container" id="particles"></div>
+    <!-- Partículas flotantes -->
+    <div class="particles" id="particles"></div>
     
-    <!-- Formas geométricas -->
-    <div class="geometric-shape shape-1"></div>
-    <div class="geometric-shape shape-2"></div>
-    <div class="geometric-shape shape-3"></div>
+    <!-- Background parallax -->
+    <div class="parallax-bg"></div>
 
-    <!-- Header/Navegación -->
-    <nav class="fixed top-0 w-full z-50 glass-morphism">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold gradient-text">KONEKTOR</div>
-                <div class="hidden md:flex space-x-6">
-                    <a href="#servicios" class="hover:text-cyan-400 transition-colors">Servicios</a>
-                    <a href="#blog" class="hover:text-cyan-400 transition-colors">Insights</a>
-                    <a href="#contacto" class="hover:text-cyan-400 transition-colors">Contacto</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center relative parallax-section">
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <div class="floating-element">
-                <h1 class="hero-title gradient-text">REVOLUCIÓN DIGITAL</h1>
-                <p class="text-xl md:text-2xl mb-4 text-cyan-300">Somos la empresa #1 para ingresar al Metaverso</p>
-                <p class="text-lg mb-8 max-w-3xl mx-auto opacity-90">
-                    Transformamos empresas a través de experiencias inmersivas en Metaverso, Inteligencia Artificial y mundos virtuales como Roblox. Con presencia en 7 países de LATAM.
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content fade-in-up">
+                <h1 class="hero-title">KONEKTOR</h1>
+                <p class="hero-subtitle">Líderes en Metaverso e Innovación Digital</p>
+                <p class="hero-description">
+                    Somos la empresa número 1 para entrar al metaverso en LATAM. 
+                    Transformamos tu empresa con experiencias inmersivas revolucionarias, 
+                    IA avanzada y soluciones de realidad virtual que conectan tu marca con el futuro.
                 </p>
-                <div class="flex flex-col md:flex-row gap-4 justify-center">
-                    <button onclick="scrollToSection('contacto')" class="btn-3d pulse-animation">
-                        <i class="fas fa-rocket mr-2"></i>Obtener Consulta Gratuita
-                    </button>
-                    <button onclick="scrollToSection('servicios')" class="btn-3d" style="background: transparent; border: 2px solid #00f5ff;">
-                        <i class="fas fa-eye mr-2"></i>Ver Servicios
-                    </button>
+                <a href="#contacto" class="btn-3d">
+                    <i class="fas fa-rocket"></i> Comenzar Transformación
+                </a>
+                <a href="#servicios" class="btn-3d" style="background: transparent; border: 2px solid #00f5ff;">
+                    <i class="fas fa-eye"></i> Ver Servicios
+                </a>
+            </div>
+        </section>
+
+        <!-- Servicios Section -->
+        <section id="servicios" class="services-section">
+            <div class="section-title fade-in-up">Nuestros Servicios</div>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">🎮</div>
+                    <h3 class="service-title">Experiencias en Metaverso</h3>
+                    <p class="service-description">
+                        Mundos virtuales inmersivos en Roblox y plataformas VR que generan 
+                        10x más engagement que medios tradicionales.
+                    </p>
+                </div>
+                
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">🤖</div>
+                    <h3 class="service-title">Inteligencia Artificial</h3>
+                    <p class="service-description">
+                        Implementación de IA avanzada, chatbots inteligentes y automatización 
+                        de procesos para maximizar la productividad empresarial.
+                    </p>
+                </div>
+                
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">🏢</div>
+                    <h3 class="service-title">Espacios Corporativos 3D</h3>
+                    <p class="service-description">
+                        Oficinas virtuales, salas de reuniones inmersivas y showrooms 
+                        digitales para hasta 500 usuarios simultáneos.
+                    </p>
+                </div>
+                
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">🎓</div>
+                    <h3 class="service-title">Capacitación Inmersiva</h3>
+                    <p class="service-description">
+                        Programas de formación en realidad virtual, simulaciones 
+                        empresariales y auditorios virtuales para eventos corporativos.
+                    </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Servicios -->
-    <section id="servicios" class="py-20 relative">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Nuestros Servicios</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="service-card glass-morphism p-8 text-center">
-                    <div class="text-5xl mb-4">🎮</div>
-                    <h3 class="text-2xl font-bold mb-4 text-cyan-400">Experiencias en Roblox</h3>
-                    <p class="opacity-90">Mundos virtuales que generan 10x más engagement que webs tradicionales. Como nuestro proyecto con Laive.</p>
-                </div>
-                <div class="service-card glass-morphism p-8 text-center">
-                    <div class="text-5xl mb-4">🤖</div>
-                    <h3 class="text-2xl font-bold mb-4 text-cyan-400">Inteligencia Artificial</h3>
-                    <p class="opacity-90">Implementación de IA empresarial personalizada con herramientas como Claude Code y Microsoft BenchmarkQED.</p>
-                </div>
-                <div class="service-card glass-morphism p-8 text-center">
-                    <div class="text-5xl mb-4">🏢</div>
-                    <h3 class="text-2xl font-bold mb-4 text-cyan-400">Espacios Corporativos 3D</h3>
-                    <p class="opacity-90">Oficinas virtuales, salas de ventas y auditorios para eventos de hasta 500 usuarios simultáneos.</p>
-                </div>
-                <div class="service-card glass-morphism p-8 text-center">
-                    <div class="text-5xl mb-4">🎓</div>
-                    <h3 class="text-2xl font-bold mb-4 text-cyan-400">Metaverso Educativo</h3>
-                    <p class="opacity-90">Capacitaciones inmersivas y eventos internacionales como el desarrollado para DUOC UC.</p>
-                </div>
-                <div class="service-card glass-morphism p-8 text-center">
-                    <div class="text-5xl mb-4">🏠</div>
-                    <h3 class="text-2xl font-bold mb-4 text-cyan-400">Recorridos Virtuales</h3>
-                    <p class="opacity-90">Tours 360° y experiencias VR para proyectos inmobiliarios y showrooms interactivos.</p>
-                </div>
-                <div class="service-card glass-morphism p-8 text-center">
-                    <div class="text-5xl mb-4">⚡</div>
-                    <h3 class="text-2xl font-bold mb-4 text-cyan-400">Transformación Digital</h3>
-                    <p class="opacity-90">Consultoría integral para adoptar tecnologías emergentes y liderar en tu sector.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog/Insights -->
-    <section id="blog" class="py-20 relative">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Insights Tecnológicos</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <article class="blog-card">
-                    <div class="text-3xl mb-4">🚀</div>
-                    <h3 class="text-xl font-bold mb-3 text-cyan-400">IA que Crea Conocimiento</h3>
-                    <p class="text-sm opacity-80 mb-4">15 Enero 2025</p>
-                    <p class="opacity-90">Sam Altman revela que en 2026 veremos IA capaz de generar insights completamente novedosos, transformando sectores clave en LATAM...</p>
+        <!-- Blog Section -->
+        <section class="blog-section">
+            <div class="section-title fade-in-up">Insights e Innovación</div>
+            
+            <div class="blog-grid">
+                <article class="blog-card fade-in-up">
+                    <h3 class="blog-title">Roblox Rompe Récords: 21.2M Usuarios en 48 Horas</h3>
+                    <p class="blog-excerpt">
+                        Una sola experiencia en Roblox alcanzó más usuarios que Netflix y Twitch juntos. 
+                        Descubre por qué el metaverso es el futuro del marketing digital.
+                    </p>
+                    <div class="blog-date">Enero 2025</div>
                 </article>
-                <article class="blog-card">
-                    <div class="text-3xl mb-4">🎮</div>
-                    <h3 class="text-xl font-bold mb-3 text-cyan-400">Roblox Rompe Récords</h3>
-                    <p class="text-sm opacity-80 mb-4">12 Enero 2025</p>
-                    <p class="opacity-90">Una experiencia alcanzó 21.2M usuarios en 48 horas, superando a Netflix y Twitch juntos. El futuro del marketing está aquí...</p>
+                
+                <article class="blog-card fade-in-up">
+                    <h3 class="blog-title">IA que Crea Conocimiento: El Futuro Llega en 2026</h3>
+                    <p class="blog-excerpt">
+                        Sam Altman revela que la próxima generación de IA será capaz de generar 
+                        insights completamente nuevos. ¿Está tu empresa preparada?
+                    </p>
+                    <div class="blog-date">Enero 2025</div>
                 </article>
-                <article class="blog-card">
-                    <div class="text-3xl mb-4">🎬</div>
-                    <h3 class="text-xl font-bold mb-3 text-cyan-400">Revolución con Midjourney</h3>
-                    <p class="text-sm opacity-80 mb-4">10 Enero 2025</p>
-                    <p class="opacity-90">La nueva generación de video por IA transforma imágenes en clips animados en segundos, democratizando la producción audiovisual...</p>
+                
+                <article class="blog-card fade-in-up">
+                    <h3 class="blog-title">Revolución de Productividad con Claude Code</h3>
+                    <p class="blog-excerpt">
+                        Equipos no técnicos ahora desarrollan como expertos. Descubre cómo 
+                        Claude Code está transformando la productividad empresarial.
+                    </p>
+                    <div class="blog-date">Enero 2025</div>
                 </article>
-                <article class="blog-card">
-                    <div class="text-3xl mb-4">🔧</div>
-                    <h3 class="text-xl font-bold mb-3 text-cyan-400">Microsoft BenchmarkQED</h3>
-                    <p class="text-sm opacity-80 mb-4">8 Enero 2025</p>
-                    <p class="opacity-90">Nueva herramienta permite medir automáticamente el rendimiento de IA empresarial personalizada...</p>
-                </article>
-                <article class="blog-card">
-                    <div class="text-3xl mb-4">💻</div>
-                    <h3 class="text-xl font-bold mb-3 text-cyan-400">Chips IA No Binarios</h3>
-                    <p class="text-sm opacity-80 mb-4">5 Enero 2025</p>
-                    <p class="opacity-90">China inicia producción del primer chip de IA no binario, rompiendo barreras de la computación tradicional...</p>
-                </article>
-                <article class="blog-card">
-                    <div class="text-3xl mb-4">⚡</div>
-                    <h3 class="text-xl font-bold mb-3 text-cyan-400">Claude Code Revoluciona</h3>
-                    <p class="text-sm opacity-80 mb-4">3 Enero 2025</p>
-                    <p class="opacity-90">Anthropic revela cómo Claude Code aumenta 2-4x la velocidad de desarrollo y democratiza la programación...</p>
+                
+                <article class="blog-card fade-in-up">
+                    <h3 class="blog-title">Microsoft BenchmarkQED: IA Personalizada</h3>
+                    <p class="blog-excerpt">
+                        La nueva herramienta de Microsoft permite entrenar IA específica 
+                        para tu empresa con medición automática de rendimiento.
+                    </p>
+                    <div class="blog-date">Enero 2025</div>
                 </article>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Formulario de Contacto -->
-    <section id="contacto" class="py-20 relative">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">¿Listo para la Transformación?</h2>
-                <p class="text-xl opacity-90 max-w-2xl mx-auto">
-                    Descubre cómo las empresas líderes están utilizando Metaverso e IA para revolucionar sus industrias
-                </p>
-            </div>
-
-            <div class="form-container glass-morphism neon-glow">
-                <form id="leadForm">
-                    <div class="form-field">
+        <!-- Contacto Section -->
+        <section id="contacto" class="contact-section">
+            <div class="contact-container fade-in-up">
+                <h2 class="section-title">¿Listo para la Transformación Digital?</h2>
+                
+                <form id="contactForm">
+                    <div class="form-group">
                         <label for="firstname">Nombre Completo *</label>
                         <input type="text" id="firstname" name="firstname" placeholder="Tu nombre completo" required>
                     </div>
-                    <div class="form-field">
+                    
+                    <div class="form-group">
                         <label for="email">Correo Electrónico *</label>
-                        <input type="email" id="email" name="email" placeholder="tu@empresa.com" required>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
                     </div>
-                    <div class="form-field">
+                    
+                    <div class="form-group">
                         <label for="phone">Teléfono *</label>
                         <input type="tel" id="phone" name="phone" placeholder="+56 9 1234 5678" required>
                     </div>
-                    <div class="form-field">
-                        <label for="company">Empresa</label>
-                        <input type="text" id="company" name="company" placeholder="Nombre de tu empresa">
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">Acepto recibir información sobre servicios de Konektor Chile</label>
                     </div>
-                    <button type="submit" class="btn-3d w-full text-lg py-4">
-                        <i class="fas fa-paper-plane mr-2"></i>Solicitar Consulta Gratuita
+                    
+                    <button type="submit" class="form-submit">
+                        <i class="fas fa-paper-plane"></i> Solicitar Información
                     </button>
                 </form>
+                
                 <div class="success-message" id="successMessage">
-                    <i class="fas fa-check-circle text-2xl mb-2"></i>
-                    <p>¡Gracias por tu interés! Sebastián Wagner se contactará contigo pronto.</p>
-                    <p class="text-sm mt-2">En menos de 24 horas recibirás información personalizada.</p>
+                    ¡Gracias por tu interés! <br>
+                    Nuestro equipo se contactará contigo muy pronto para comenzar tu transformación digital.
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="py-12 glass-morphism">
-        <div class="container mx-auto px-6">
-            <div class="text-center">
-                <h3 class="text-3xl font-bold gradient-text mb-6">KONEKTOR</h3>
-                <p class="text-lg mb-4">
-                    <strong>Sebastián Wagner</strong> - Key Account Manager
+        <!-- Footer -->
+        <footer class="footer">
+            <h3 class="footer-title">KONEKTOR CHILE</h3>
+            <div class="footer-content">
+                <p><strong>Sebastián Wagner</strong> - Director Comercial</p>
+                <p>
+                    <i class="fas fa-envelope"></i> sebastian@konektorgroup.com<br>
+                    <i class="fas fa-phone"></i> +56 9 5894 7607<br>
+                    <i class="fas fa-globe"></i> www.konektorgroup.com
                 </p>
-                <div class="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-6 mb-6">
-                    <a href="mailto:sebastian@konektorgroup.com" class="flex items-center hover:text-cyan-400 transition-colors">
-                        <i class="fas fa-envelope mr-2"></i>sebastian@konektorgroup.com
-                    </a>
-                    <a href="tel:+56958947607" class="flex items-center hover:text-cyan-400 transition-colors">
-                        <i class="fas fa-phone mr-2"></i>+56 9 5894 7607
-                    </a>
-                </div>
-                <p class="opacity-70 mb-4">
-                    Presencia en España, Andorra, México, Colombia, Chile, Ecuador y Perú
-                </p>
-                <p class="text-sm opacity-60">
+                <p style="margin-top: 2rem; opacity: 0.7;">
+                    Presencia en España, Andorra, México, Colombia, Chile, Ecuador y Perú<br>
                     © 2025 Konektor Group. El futuro del marketing es inmersivo.
                 </p>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <script>
-        // Crear partículas
+        // Crear partículas flotantes
         function createParticles() {
-            const container = document.getElementById('particles');
-            for (let i = 0; i < 50; i++) {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.animationDuration = (3 + Math.random() * 3) + 's';
-                container.appendChild(particle);
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                particlesContainer.appendChild(particle);
             }
         }
 
-        // Scroll suave
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ 
-                behavior: 'smooth' 
+        // Efectos parallax
+        function handleParallax() {
+            const parallaxBg = document.querySelector('.parallax-bg');
+            
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+                parallaxBg.style.transform = `translate3d(0, ${rate}px, 0)`;
             });
         }
 
-        // Manejo del formulario
-        document.getElementById('leadForm').addEventListener('submit', function(e) {
+        // Animaciones de entrada
+        function handleScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Formulario HubSpot - Funcionalidad exacta copiada
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const form = this;
             const button = form.querySelector('button[type="submit"]');
             const successMessage = document.getElementById('successMessage');
             
-            // Cambiar estado del botón
-            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Enviando...';
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
             button.disabled = true;
             
             // Preparar datos para HubSpot
@@ -500,9 +720,7 @@
             formData.append('firstname', document.getElementById('firstname').value);
             formData.append('email', document.getElementById('email').value);
             formData.append('phone', document.getElementById('phone').value);
-            formData.append('company', document.getElementById('company').value || 'No especificada');
             
-            // Contexto de HubSpot
             const hsContext = {
                 "hutk": document.cookie.replace(/(?:(?:^|.*;\s*)hubspotutk\s*\=\s*([^;]*).*$)|^.*$/, "$1"),
                 "pageUrl": window.location.href,
@@ -517,47 +735,40 @@
                 body: formData.toString()
             })
             .then(response => {
-                if (response.ok) {
-                    form.style.display = 'none';
-                    successMessage.style.display = 'block';
-                    console.log('✅ Lead enviado a HubSpot exitosamente');
-                } else {
-                    throw new Error('Error en el envío');
-                }
+                form.style.display = 'none';
+                successMessage.style.display = 'block';
+                console.log('✅ Lead enviado a HubSpot exitosamente');
             })
             .catch(error => {
                 console.error('Error:', error);
-                button.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Solicitar Consulta Gratuita';
+                button.innerHTML = '<i class="fas fa-paper-plane"></i> Solicitar Información';
                 button.disabled = false;
-                alert('Error al enviar el formulario. Por favor contacta directamente a sebastian@konektorgroup.com');
+                alert('Error al enviar. Por favor contacta directamente: sebastian@konektorgroup.com');
             });
         });
 
-        // Efectos parallax simples
-        window.addEventListener('scroll', () => {
-            const scroll = window.pageYOffset;
-            const shapes = document.querySelectorAll('.geometric-shape');
-            shapes.forEach((shape, index) => {
-                shape.style.transform = `translateY(${scroll * (0.1 + index * 0.05)}px) rotate(${scroll * 0.1}deg)`;
-            });
-        });
-
-        // Inicializar
-        document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
-        });
-
-        // Navegación suave
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
+                    target.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
+        });
+
+        // Inicializar todo
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            handleParallax();
+            handleScrollAnimations();
         });
     </script>
 </body>
 </html>
+
 
