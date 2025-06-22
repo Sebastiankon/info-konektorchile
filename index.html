@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konektor Chile - Revolución Digital en el Metaverso</title>
+    <title>Konektor Chile - Líderes en Metaverso e Innovación Tecnológica</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/23647212.js"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
@@ -15,15 +17,14 @@
         }
 
         body {
-            font-family: 'Inter', 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
             color: white;
             overflow-x: hidden;
-            position: relative;
+            line-height: 1.6;
         }
 
-        /* Partículas 3D Flotantes */
-        #particles {
+        .particles-container {
             position: fixed;
             top: 0;
             left: 0;
@@ -35,9 +36,12 @@
 
         .particle {
             position: absolute;
-            background: linear-gradient(45deg, #00f5ff, #8a2be2);
+            width: 2px;
+            height: 2px;
+            background: #00f5ff;
             border-radius: 50%;
             animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
         }
 
         @keyframes float {
@@ -45,186 +49,117 @@
             50% { transform: translateY(-20px) rotate(180deg); }
         }
 
-        /* Efectos 3D y Glass Morphism */
-        .glass {
+        .geometric-shape {
+            position: absolute;
+            border: 1px solid rgba(0, 245, 255, 0.2);
+            animation: rotate 20s linear infinite;
+        }
+
+        .shape-1 {
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            left: 10%;
+            transform: rotate(45deg);
+        }
+
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 10%;
+            border-radius: 50%;
+        }
+
+        .shape-3 {
+            width: 80px;
+            height: 80px;
+            top: 30%;
+            right: 30%;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            background: rgba(138, 43, 226, 0.1);
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .glass-morphism {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border-radius: 20px;
         }
 
-        .glass-strong {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(0, 245, 255, 0.3);
-            box-shadow: 0 15px 35px rgba(0, 245, 255, 0.1);
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
         }
 
-        .card-3d {
-            transform-style: preserve-3d;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .card-3d:hover {
-            transform: translateY(-20px) rotateX(10deg) rotateY(5deg) scale(1.05);
-            box-shadow: 0 30px 60px rgba(0, 245, 255, 0.3);
-        }
-
-        /* Gradientes Holográficos */
-        .holographic {
-            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5, #ffbe0b);
-            background-size: 400% 400%;
-            animation: holographic 4s ease infinite;
+        .gradient-text {
+            background: linear-gradient(45deg, #00f5ff, #8a2be2, #ff6b6b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        @keyframes holographic {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1rem;
+            animation: titleGlow 3s ease-in-out infinite alternate;
         }
 
-        /* Efectos de Neon */
-        .neon {
-            color: #00f5ff;
-            text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff, 0 0 30px #00f5ff;
+        @keyframes titleGlow {
+            from { text-shadow: 0 0 20px rgba(0, 245, 255, 0.5); }
+            to { text-shadow: 0 0 40px rgba(138, 43, 226, 0.7); }
         }
 
-        .neon-border {
-            border: 2px solid #00f5ff;
-            box-shadow: 0 0 20px rgba(0, 245, 255, 0.5), inset 0 0 20px rgba(0, 245, 255, 0.1);
+        .service-card {
+            transform-style: preserve-3d;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* Botones con Efectos 3D */
+        .service-card:hover {
+            transform: rotateY(10deg) rotateX(10deg) translateZ(50px);
+            box-shadow: 0 25px 50px rgba(0, 245, 255, 0.2);
+        }
+
+        .floating-element {
+            animation: floatingAnimation 6s ease-in-out infinite;
+        }
+
+        @keyframes floatingAnimation {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+
+        .parallax-section {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
         .btn-3d {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             background: linear-gradient(45deg, #00f5ff, #8a2be2);
             border: none;
+            padding: 1rem 2rem;
             border-radius: 50px;
-            padding: 15px 30px;
             color: white;
-            font-weight: bold;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
             overflow: hidden;
-        }
-
-        .btn-3d::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn-3d:hover::before {
-            left: 100%;
         }
 
         .btn-3d:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(0, 245, 255, 0.3);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 245, 255, 0.4);
         }
 
-        /* Animaciones de Entrada */
-        .animate-fade-in {
-            animation: fadeInUp 1s ease-out forwards;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Efectos Parallax */
-        .parallax {
-            transform: translateZ(0);
-            will-change: transform;
-        }
-
-        /* FORMULARIO - Estilos Específicos */
-        .form-section {
-            background: rgba(0,0,0,0.4);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 245, 255, 0.2);
-            border-radius: 30px;
-            padding: 3rem;
-            margin: 3rem 0;
-            position: relative;
-            z-index: 10;
-        }
-
-        .form-container {
-            max-width: 500px;
-            margin: 0 auto;
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(15px);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(0, 245, 255, 0.3);
-            box-shadow: 0 15px 35px rgba(0, 245, 255, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #00f5ff;
-            font-weight: bold;
-            font-size: 1rem;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid rgba(0, 245, 255, 0.3);
-            border-radius: 10px;
-            background: rgba(255,255,255,0.1);
-            color: white;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #00f5ff;
-            box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
-            background: rgba(255,255,255,0.15);
-        }
-
-        .form-group input::placeholder {
-            color: rgba(255,255,255,0.6);
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: 1.2rem;
-            font-size: 1.2rem;
-            border: none;
-            border-radius: 10px;
-            background: linear-gradient(45deg, #00f5ff, #8a2be2);
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .form-submit::before {
+        .btn-3d:before {
             content: '';
             position: absolute;
             top: 0;
@@ -235,358 +170,339 @@
             transition: left 0.5s;
         }
 
-        .form-submit:hover::before {
+        .btn-3d:hover:before {
             left: 100%;
         }
 
-        .form-submit:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0, 245, 255, 0.4);
+        .form-container {
+            position: relative;
+            z-index: 10;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .form-field {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #00f5ff;
+            font-weight: 600;
+        }
+
+        .form-field input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(0, 245, 255, 0.3);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .form-field input:focus {
+            outline: none;
+            border-color: #00f5ff;
+            box-shadow: 0 0 25px rgba(0, 245, 255, 0.4);
+            transform: scale(1.02);
+        }
+
+        .form-field input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 245, 255, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(0, 245, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 245, 255, 0); }
         }
 
         .success-message {
             background: linear-gradient(45deg, #00ff88, #00f5ff);
-            color: #0f0f23;
+            color: #0a0a0a;
             padding: 1.5rem;
             border-radius: 15px;
             text-align: center;
-            font-weight: bold;
+            font-weight: 700;
             margin-top: 1rem;
             display: none;
-            box-shadow: 0 10px 25px rgba(0, 255, 136, 0.3);
+            animation: successSlide 0.5s ease-out;
         }
 
-        /* Blog Cards */
+        @keyframes successSlide {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
         .blog-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(0, 245, 255, 0.2);
             border-radius: 20px;
-            padding: 2rem;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 1.5rem;
+            transition: all 0.4s ease;
             transform-style: preserve-3d;
+            perspective: 1000px;
         }
 
         .blog-card:hover {
-            transform: translateY(-15px) rotateX(5deg) rotateY(2deg);
+            transform: rotateX(5deg) rotateY(5deg) translateZ(20px);
             border-color: #00f5ff;
-            box-shadow: 0 25px 50px rgba(0, 245, 255, 0.2);
+            box-shadow: 0 15px 30px rgba(0, 245, 255, 0.2);
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .form-section {
-                padding: 2rem 1rem;
-                margin: 2rem 0;
-            }
-            .form-container {
-                padding: 1.5rem;
-            }
-        }
-
-        /* Efectos adicionales */
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .pulse-glow {
-            animation: pulseGlow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes pulseGlow {
-            from { box-shadow: 0 0 20px rgba(0, 245, 255, 0.3); }
-            to { box-shadow: 0 0 30px rgba(0, 245, 255, 0.6); }
+            .hero-title { font-size: 2.5rem; }
+            .form-container { padding: 1rem; }
+            .service-card:hover { transform: none; }
         }
     </style>
 </head>
 <body>
-    <!-- Partículas 3D -->
-    <div id="particles"></div>
+    <!-- Partículas de fondo -->
+    <div class="particles-container" id="particles"></div>
+    
+    <!-- Formas geométricas -->
+    <div class="geometric-shape shape-1"></div>
+    <div class="geometric-shape shape-2"></div>
+    <div class="geometric-shape shape-3"></div>
 
-    <!-- Header -->
-    <header class="relative z-20 pt-8">
-        <nav class="container mx-auto px-6 flex justify-between items-center">
-            <div class="text-2xl font-bold holographic">KONEKTOR</div>
-            <div class="hidden md:flex space-x-6">
-                <a href="#servicios" class="hover:text-cyan-400 transition-colors">Servicios</a>
-                <a href="#blog" class="hover:text-cyan-400 transition-colors">Blog</a>
-                <a href="#formulario" class="hover:text-cyan-400 transition-colors">Contacto</a>
+    <!-- Header/Navegación -->
+    <nav class="fixed top-0 w-full z-50 glass-morphism">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">KONEKTOR</div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#servicios" class="hover:text-cyan-400 transition-colors">Servicios</a>
+                    <a href="#blog" class="hover:text-cyan-400 transition-colors">Insights</a>
+                    <a href="#contacto" class="hover:text-cyan-400 transition-colors">Contacto</a>
+                </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="relative z-10 min-h-screen flex items-center justify-center px-6">
-        <div class="text-center max-w-4xl mx-auto animate-fade-in">
-            <h1 class="text-6xl md:text-8xl font-bold mb-6 holographic">
-                KONEKTOR
-            </h1>
-            <p class="text-xl md:text-2xl mb-4 neon">
-                La empresa #1 para entrar al Metaverso
-            </p>
-            <p class="text-lg md:text-xl mb-8 opacity-90 max-w-3xl mx-auto">
-                Transformamos tu negocio con experiencias inmersivas revolucionarias. 
-                Líderes en Metaverso, IA y Transformación Digital en LATAM.
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#formulario" class="btn-3d inline-block">
-                    <i class="fas fa-rocket mr-2"></i>
-                    Descarga Casos de Éxito
-                </a>
-                <a href="#servicios" class="btn-3d" style="background: transparent; border: 2px solid #00f5ff;">
-                    <i class="fas fa-play mr-2"></i>
-                    Ver Servicios
-                </a>
+    <section class="min-h-screen flex items-center justify-center relative parallax-section">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="floating-element">
+                <h1 class="hero-title gradient-text">REVOLUCIÓN DIGITAL</h1>
+                <p class="text-xl md:text-2xl mb-4 text-cyan-300">Somos la empresa #1 para ingresar al Metaverso</p>
+                <p class="text-lg mb-8 max-w-3xl mx-auto opacity-90">
+                    Transformamos empresas a través de experiencias inmersivas en Metaverso, Inteligencia Artificial y mundos virtuales como Roblox. Con presencia en 7 países de LATAM.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <button onclick="scrollToSection('contacto')" class="btn-3d pulse-animation">
+                        <i class="fas fa-rocket mr-2"></i>Obtener Consulta Gratuita
+                    </button>
+                    <button onclick="scrollToSection('servicios')" class="btn-3d" style="background: transparent; border: 2px solid #00f5ff;">
+                        <i class="fas fa-eye mr-2"></i>Ver Servicios
+                    </button>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Servicios -->
-    <section id="servicios" class="relative z-10 py-20 px-6">
-        <div class="container mx-auto max-w-6xl">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 holographic">
-                Nuestros Servicios
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card-3d glass p-8 rounded-3xl">
-                    <div class="text-4xl mb-4 neon">🎮</div>
-                    <h3 class="text-2xl font-bold mb-4 text-cyan-400">Metaverso & Roblox</h3>
-                    <p class="opacity-90">Experiencias inmersivas que generan 10x más engagement. Récord: 21.2M usuarios en 48 horas.</p>
+    <section id="servicios" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Nuestros Servicios</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card glass-morphism p-8 text-center">
+                    <div class="text-5xl mb-4">🎮</div>
+                    <h3 class="text-2xl font-bold mb-4 text-cyan-400">Experiencias en Roblox</h3>
+                    <p class="opacity-90">Mundos virtuales que generan 10x más engagement que webs tradicionales. Como nuestro proyecto con Laive.</p>
                 </div>
-                <div class="card-3d glass p-8 rounded-3xl">
-                    <div class="text-4xl mb-4 neon">🤖</div>
+                <div class="service-card glass-morphism p-8 text-center">
+                    <div class="text-5xl mb-4">🤖</div>
                     <h3 class="text-2xl font-bold mb-4 text-cyan-400">Inteligencia Artificial</h3>
-                    <p class="opacity-90">Soluciones de IA que aumentan la productividad empresarial 2-4x y reducen costos operativos.</p>
+                    <p class="opacity-90">Implementación de IA empresarial personalizada con herramientas como Claude Code y Microsoft BenchmarkQED.</p>
                 </div>
-                <div class="card-3d glass p-8 rounded-3xl">
-                    <div class="text-4xl mb-4 neon">🏢</div>
-                    <h3 class="text-2xl font-bold mb-4 text-cyan-400">Espacios Virtuales</h3>
-                    <p class="opacity-90">Oficinas 3D, showrooms y eventos virtuales para hasta 500 usuarios simultáneos.</p>
+                <div class="service-card glass-morphism p-8 text-center">
+                    <div class="text-5xl mb-4">🏢</div>
+                    <h3 class="text-2xl font-bold mb-4 text-cyan-400">Espacios Corporativos 3D</h3>
+                    <p class="opacity-90">Oficinas virtuales, salas de ventas y auditorios para eventos de hasta 500 usuarios simultáneos.</p>
                 </div>
-                <div class="card-3d glass p-8 rounded-3xl">
-                    <div class="text-4xl mb-4 neon">🎓</div>
-                    <h3 class="text-2xl font-bold mb-4 text-cyan-400">Educación Inmersiva</h3>
-                    <p class="opacity-90">Plataformas educativas VR que mejoran el aprendizaje y retención hasta 400%.</p>
+                <div class="service-card glass-morphism p-8 text-center">
+                    <div class="text-5xl mb-4">🎓</div>
+                    <h3 class="text-2xl font-bold mb-4 text-cyan-400">Metaverso Educativo</h3>
+                    <p class="opacity-90">Capacitaciones inmersivas y eventos internacionales como el desarrollado para DUOC UC.</p>
                 </div>
-                <div class="card-3d glass p-8 rounded-3xl">
-                    <div class="text-4xl mb-4 neon">📱</div>
-                    <h3 class="text-2xl font-bold mb-4 text-cyan-400">Apps AR/VR</h3>
-                    <p class="opacity-90">Aplicaciones móviles con realidad aumentada para marketing y ventas innovadoras.</p>
+                <div class="service-card glass-morphism p-8 text-center">
+                    <div class="text-5xl mb-4">🏠</div>
+                    <h3 class="text-2xl font-bold mb-4 text-cyan-400">Recorridos Virtuales</h3>
+                    <p class="opacity-90">Tours 360° y experiencias VR para proyectos inmobiliarios y showrooms interactivos.</p>
                 </div>
-                <div class="card-3d glass p-8 rounded-3xl">
-                    <div class="text-4xl mb-4 neon">⚡</div>
-                    <h3 class="text-2xl font-bold mb-4 text-cyan-400">Consultoría Tech</h3>
-                    <p class="opacity-90">Estrategias de transformación digital y adopción de tecnologías emergentes.</p>
+                <div class="service-card glass-morphism p-8 text-center">
+                    <div class="text-5xl mb-4">⚡</div>
+                    <h3 class="text-2xl font-bold mb-4 text-cyan-400">Transformación Digital</h3>
+                    <p class="opacity-90">Consultoría integral para adoptar tecnologías emergentes y liderar en tu sector.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Blog/Insights -->
-    <section id="blog" class="relative z-10 py-20 px-6">
-        <div class="container mx-auto max-w-6xl">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 holographic">
-                Insights & Tendencias
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section id="blog" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Insights Tecnológicos</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <article class="blog-card">
-                    <div class="text-sm text-cyan-400 mb-2">Inteligencia Artificial</div>
-                    <h3 class="text-xl font-bold mb-3">IA que Crea Conocimiento Llega en 2026</h3>
-                    <p class="text-sm opacity-80">Sam Altman revela sistemas de IA capaces de generar insights completamente novedosos para revolucionar sectores clave de LATAM...</p>
+                    <div class="text-3xl mb-4">🚀</div>
+                    <h3 class="text-xl font-bold mb-3 text-cyan-400">IA que Crea Conocimiento</h3>
+                    <p class="text-sm opacity-80 mb-4">15 Enero 2025</p>
+                    <p class="opacity-90">Sam Altman revela que en 2026 veremos IA capaz de generar insights completamente novedosos, transformando sectores clave en LATAM...</p>
                 </article>
                 <article class="blog-card">
-                    <div class="text-sm text-cyan-400 mb-2">Metaverso</div>
-                    <h3 class="text-xl font-bold mb-3">Roblox Rompe Récords: 21.2M Usuarios</h3>
-                    <p class="text-sm opacity-80">Una sola experiencia alcanzó más usuarios que Netflix y Twitch juntos. El futuro del engagement está aquí...</p>
+                    <div class="text-3xl mb-4">🎮</div>
+                    <h3 class="text-xl font-bold mb-3 text-cyan-400">Roblox Rompe Récords</h3>
+                    <p class="text-sm opacity-80 mb-4">12 Enero 2025</p>
+                    <p class="opacity-90">Una experiencia alcanzó 21.2M usuarios en 48 horas, superando a Netflix y Twitch juntos. El futuro del marketing está aquí...</p>
                 </article>
                 <article class="blog-card">
-                    <div class="text-sm text-cyan-400 mb-2">Innovación</div>
-                    <h3 class="text-xl font-bold mb-3">Revolución de la IA con Midjourney Video</h3>
-                    <p class="text-sm opacity-80">La nueva herramienta transforma imágenes en clips animados en segundos, democratizando la producción audiovisual...</p>
+                    <div class="text-3xl mb-4">🎬</div>
+                    <h3 class="text-xl font-bold mb-3 text-cyan-400">Revolución con Midjourney</h3>
+                    <p class="text-sm opacity-80 mb-4">10 Enero 2025</p>
+                    <p class="opacity-90">La nueva generación de video por IA transforma imágenes en clips animados en segundos, democratizando la producción audiovisual...</p>
                 </article>
                 <article class="blog-card">
-                    <div class="text-sm text-cyan-400 mb-2">Microsoft</div>
-                    <h3 class="text-xl font-bold mb-3">BenchmarkQED: IA Personalizada</h3>
-                    <p class="text-sm opacity-80">Microsoft lanza herramienta revolucionaria para medir automáticamente el rendimiento de IA empresarial personalizada...</p>
+                    <div class="text-3xl mb-4">🔧</div>
+                    <h3 class="text-xl font-bold mb-3 text-cyan-400">Microsoft BenchmarkQED</h3>
+                    <p class="text-sm opacity-80 mb-4">8 Enero 2025</p>
+                    <p class="opacity-90">Nueva herramienta permite medir automáticamente el rendimiento de IA empresarial personalizada...</p>
                 </article>
                 <article class="blog-card">
-                    <div class="text-sm text-cyan-400 mb-2">Tecnología</div>
-                    <h3 class="text-xl font-bold mb-3">Chips de IA No Binarios desde China</h3>
-                    <p class="text-sm opacity-80">China inicia producción masiva del primer chip de IA no binario, rompiendo barreras de la computación tradicional...</p>
+                    <div class="text-3xl mb-4">💻</div>
+                    <h3 class="text-xl font-bold mb-3 text-cyan-400">Chips IA No Binarios</h3>
+                    <p class="text-sm opacity-80 mb-4">5 Enero 2025</p>
+                    <p class="opacity-90">China inicia producción del primer chip de IA no binario, rompiendo barreras de la computación tradicional...</p>
                 </article>
                 <article class="blog-card">
-                    <div class="text-sm text-cyan-400 mb-2">Productividad</div>
-                    <h3 class="text-xl font-bold mb-3">Claude Code Transforma Equipos</h3>
-                    <p class="text-sm opacity-80">Anthropic revela cómo Claude Code aumenta 2-4x la velocidad de desarrollo y reduce 80% el tiempo de investigación...</p>
+                    <div class="text-3xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold mb-3 text-cyan-400">Claude Code Revoluciona</h3>
+                    <p class="text-sm opacity-80 mb-4">3 Enero 2025</p>
+                    <p class="opacity-90">Anthropic revela cómo Claude Code aumenta 2-4x la velocidad de desarrollo y democratiza la programación...</p>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- FORMULARIO - Sección Crítica -->
-    <section id="formulario" class="relative z-10 py-20 px-6">
-        <div class="container mx-auto max-w-4xl">
-            <div class="form-section pulse-glow">
-                <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 holographic">
-                    Obtén Nuestro Ebook de Casos de Éxito
-                </h2>
-                <p class="text-center text-lg mb-8 opacity-90">
-                    Descarga casos reales: YOPI-LAIVE, CBN Bolivia, DUOC UC y más
+    <!-- Formulario de Contacto -->
+    <section id="contacto" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">¿Listo para la Transformación?</h2>
+                <p class="text-xl opacity-90 max-w-2xl mx-auto">
+                    Descubre cómo las empresas líderes están utilizando Metaverso e IA para revolucionar sus industrias
                 </p>
-                <div class="form-container">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="firstname">
-                                <i class="fas fa-user mr-2"></i>Nombre Completo *
-                            </label>
-                            <input type="text" id="firstname" name="firstname" placeholder="Tu nombre completo" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company">
-                                <i class="fas fa-building mr-2"></i>Empresa/Organización *
-                            </label>
-                            <input type="text" id="company" name="company" placeholder="Nombre de tu empresa" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">
-                                <i class="fas fa-envelope mr-2"></i>Correo Electrónico *
-                            </label>
-                            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">
-                                <i class="fas fa-phone mr-2"></i>Teléfono *
-                            </label>
-                            <input type="tel" id="phone" name="phone" placeholder="+56 9 1234 5678" required>
-                        </div>
-                        <button type="submit" class="form-submit">
-                            <i class="fas fa-download mr-2"></i>
-                            Descargar Ebook Gratuito
-                        </button>
-                    </form>
-                    <div class="success-message" id="successMessage">
-                        <i class="fas fa-check-circle text-2xl mb-2"></i><br>
-                        ¡Gracias! Tu información ha sido enviada exitosamente.<br>
-                        <strong>Sebastián Wagner</strong> se contactará contigo pronto.<br><br>
-                        <a href="#" id="downloadLink" class="btn-3d inline-block">
-                            <i class="fas fa-file-download mr-2"></i>Descargar Casos de Éxito
-                        </a>
+            </div>
+
+            <div class="form-container glass-morphism neon-glow">
+                <form id="leadForm">
+                    <div class="form-field">
+                        <label for="firstname">Nombre Completo *</label>
+                        <input type="text" id="firstname" name="firstname" placeholder="Tu nombre completo" required>
                     </div>
+                    <div class="form-field">
+                        <label for="email">Correo Electrónico *</label>
+                        <input type="email" id="email" name="email" placeholder="tu@empresa.com" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="phone">Teléfono *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+56 9 1234 5678" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="company">Empresa</label>
+                        <input type="text" id="company" name="company" placeholder="Nombre de tu empresa">
+                    </div>
+                    <button type="submit" class="btn-3d w-full text-lg py-4">
+                        <i class="fas fa-paper-plane mr-2"></i>Solicitar Consulta Gratuita
+                    </button>
+                </form>
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle text-2xl mb-2"></i>
+                    <p>¡Gracias por tu interés! Sebastián Wagner se contactará contigo pronto.</p>
+                    <p class="text-sm mt-2">En menos de 24 horas recibirás información personalizada.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="relative z-10 py-16 px-6 border-t border-gray-800">
-        <div class="container mx-auto max-w-4xl text-center">
-            <h3 class="text-3xl font-bold mb-4 holographic">KONEKTOR</h3>
-            <p class="text-lg mb-2"><strong>Sebastián Wagner</strong> - Key Account Manager</p>
-            <div class="flex flex-wrap justify-center gap-4 mb-6">
-                <a href="mailto:sebastian@konektorgroup.com" class="flex items-center hover:text-cyan-400 transition-colors">
-                    <i class="fas fa-envelope mr-2"></i>sebastian@konektorgroup.com
-                </a>
-                <a href="tel:+56958947607" class="flex items-center hover:text-cyan-400 transition-colors">
-                    <i class="fas fa-phone mr-2"></i>+56 9 5894 7607
-                </a>
-                <a href="https://www.konektorgroup.com" class="flex items-center hover:text-cyan-400 transition-colors">
-                    <i class="fas fa-globe mr-2"></i>www.konektorgroup.com
-                </a>
+    <footer class="py-12 glass-morphism">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h3 class="text-3xl font-bold gradient-text mb-6">KONEKTOR</h3>
+                <p class="text-lg mb-4">
+                    <strong>Sebastián Wagner</strong> - Key Account Manager
+                </p>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-6 mb-6">
+                    <a href="mailto:sebastian@konektorgroup.com" class="flex items-center hover:text-cyan-400 transition-colors">
+                        <i class="fas fa-envelope mr-2"></i>sebastian@konektorgroup.com
+                    </a>
+                    <a href="tel:+56958947607" class="flex items-center hover:text-cyan-400 transition-colors">
+                        <i class="fas fa-phone mr-2"></i>+56 9 5894 7607
+                    </a>
+                </div>
+                <p class="opacity-70 mb-4">
+                    Presencia en España, Andorra, México, Colombia, Chile, Ecuador y Perú
+                </p>
+                <p class="text-sm opacity-60">
+                    © 2025 Konektor Group. El futuro del marketing es inmersivo.
+                </p>
             </div>
-            <p class="opacity-70 mb-4">
-                Presencia en España, Andorra, México, Colombia, Chile, Ecuador y Perú
-            </p>
-            <p class="text-sm opacity-60">
-                © 2025 Konektor Group. El futuro del marketing es inmersivo.
-            </p>
         </div>
     </footer>
 
     <script>
-        // Crear partículas flotantes 3D
+        // Crear partículas
         function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
-
-            for (let i = 0; i < particleCount; i++) {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
-                
-                const size = Math.random() * 4 + 2;
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.top = Math.random() * 100 + '%';
                 particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
-                
-                particlesContainer.appendChild(particle);
+                particle.style.animationDuration = (3 + Math.random() * 3) + 's';
+                container.appendChild(particle);
             }
         }
 
-        // Efectos parallax
-        function handleParallax() {
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const parallaxElements = document.querySelectorAll('.parallax');
-                
-                parallaxElements.forEach(element => {
-                    const speed = element.dataset.speed || 0.5;
-                    element.style.transform = `translateY(${scrolled * speed}px)`;
-                });
-            });
-        }
-
-        // Animaciones de scroll
-        function handleScrollAnimations() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animationDelay = '0s';
-                        entry.target.classList.add('animate-fade-in');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.card-3d, .blog-card').forEach(el => {
-                observer.observe(el);
-            });
-        }
-
         // Scroll suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ 
+                behavior: 'smooth' 
             });
-        });
+        }
 
-        // FORMULARIO HUBSPOT - LA FUNCIONALIDAD CRÍTICA (Copiada exactamente)
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        // Manejo del formulario
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const form = this;
             const button = form.querySelector('button[type="submit"]');
             const successMessage = document.getElementById('successMessage');
             
+            // Cambiar estado del botón
             button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Enviando...';
             button.disabled = true;
             
             // Preparar datos para HubSpot
             const formData = new URLSearchParams();
             formData.append('firstname', document.getElementById('firstname').value);
-            formData.append('company', document.getElementById('company').value);
             formData.append('email', document.getElementById('email').value);
             formData.append('phone', document.getElementById('phone').value);
+            formData.append('company', document.getElementById('company').value || 'No especificada');
             
+            // Contexto de HubSpot
             const hsContext = {
                 "hutk": document.cookie.replace(/(?:(?:^|.*;\s*)hubspotutk\s*\=\s*([^;]*).*$)|^.*$/, "$1"),
                 "pageUrl": window.location.href,
@@ -601,61 +517,47 @@
                 body: formData.toString()
             })
             .then(response => {
-                // Crear enlace de descarga
-                const downloadLink = document.getElementById('downloadLink');
-                const pdfContent = `KONEKTOR GROUP - CASOS DE ÉXITO
-
-✅ YOPI - LAIVE: Mundo virtual en Roblox, 10x más engagement que web tradicional
-   - Tiempo de sesión promedio: 15+ minutos
-   - Interacciones por usuario: +300% vs web
-   - Alcance orgánico: +500% en redes sociales
-
-✅ CBN: Onboarding corporativo en Bolivia
-   - Reducción 60% tiempo de capacitación
-   - Retención de información: +80%
-   - Satisfacción empleados: 95%
-
-✅ DUOC UC: Eventos internacionales inmersivos
-   - 500+ usuarios simultáneos
-   - Ahorro costos eventos: 70%
-   - Participación internacional: +200%
-
-✅ Proyecto Inmobiliario VR:
-   - Salas piloto virtuales
-   - Reducción visitas físicas: 40%
-   - Cierre de ventas: +35%
-
-CONTACTO:
-📧 sebastian@konektorgroup.com
-📱 +56 9 5894 7607
-🌐 www.konektorgroup.com
-
-© 2025 Konektor Group - Conectando mundos, creando futuros`;
-                
-                const blob = new Blob([pdfContent], { type: 'text/plain' });
-                const url = URL.createObjectURL(blob);
-                downloadLink.href = url;
-                downloadLink.download = 'Konektor_Casos_Exito_Detallados.txt';
-                
-                form.style.display = 'none';
-                successMessage.style.display = 'block';
-                
-                console.log('✅ Lead enviado a HubSpot exitosamente');
+                if (response.ok) {
+                    form.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    console.log('✅ Lead enviado a HubSpot exitosamente');
+                } else {
+                    throw new Error('Error en el envío');
+                }
             })
             .catch(error => {
                 console.error('Error:', error);
-                button.innerHTML = '<i class="fas fa-download mr-2"></i>Descargar Ebook Gratuito';
+                button.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Solicitar Consulta Gratuita';
                 button.disabled = false;
-                alert('Error al enviar. Contacta directamente: sebastian@konektorgroup.com');
+                alert('Error al enviar el formulario. Por favor contacta directamente a sebastian@konektorgroup.com');
             });
         });
 
-        // Inicializar todo
+        // Efectos parallax simples
+        window.addEventListener('scroll', () => {
+            const scroll = window.pageYOffset;
+            const shapes = document.querySelectorAll('.geometric-shape');
+            shapes.forEach((shape, index) => {
+                shape.style.transform = `translateY(${scroll * (0.1 + index * 0.05)}px) rotate(${scroll * 0.1}deg)`;
+            });
+        });
+
+        // Inicializar
         document.addEventListener('DOMContentLoaded', function() {
             createParticles();
-            handleParallax();
-            handleScrollAnimations();
+        });
+
+        // Navegación suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
         });
     </script>
 </body>
 </html>
+
