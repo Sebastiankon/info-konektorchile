@@ -180,78 +180,75 @@
             max-width: 600px;
             margin: 0 auto;
             padding: 3rem;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(15px);
-            border: 2px solid rgba(0, 245, 255, 0.3);
+            border: 1px solid rgba(0, 245, 255, 0.3);
             border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
         }
 
-        /* Estilos específicos para el formulario HubSpot */
-        .hs-form-frame,
-        .hs-form {
+        .hs-form-frame {
             background: transparent !important;
         }
 
-        .hs-form .hs-input {
-            background: rgba(255, 255, 255, 0.1) !important;
-            border: 2px solid rgba(0, 245, 255, 0.4) !important;
-            border-radius: 12px !important;
-            padding: 12px 16px !important;
-            color: white !important;
-            font-size: 16px !important;
-            font-family: 'Inter', sans-serif !important;
-            margin-bottom: 8px !important;
+        .hs-form-frame .hs-form {
+            background: transparent !important;
         }
 
-        .hs-form .hs-input:focus {
+        .hs-form-frame .hs-fieldtype-text input,
+        .hs-form-frame .hs-fieldtype-email input,
+        .hs-form-frame .hs-fieldtype-phonenumber input {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border: 2px solid rgba(0, 245, 255, 0.3) !important;
+            border-radius: 12px !important;
+            color: white !important;
+            padding: 12px 16px !important;
+            font-size: 16px !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .hs-form-frame .hs-fieldtype-text input:focus,
+        .hs-form-frame .hs-fieldtype-email input:focus,
+        .hs-form-frame .hs-fieldtype-phonenumber input:focus {
             border-color: #00f5ff !important;
-            box-shadow: 0 0 20px rgba(0, 245, 255, 0.4) !important;
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.3) !important;
             outline: none !important;
         }
 
-        .hs-form .hs-input::placeholder {
-            color: rgba(255, 255, 255, 0.6) !important;
-        }
-
-        .hs-form label {
+        .hs-form-frame .hs-fieldtype-text label,
+        .hs-form-frame .hs-fieldtype-email label,
+        .hs-form-frame .hs-fieldtype-phonenumber label {
             color: #00f5ff !important;
             font-weight: 600 !important;
-            font-size: 14px !important;
             margin-bottom: 8px !important;
             display: block !important;
         }
 
-        .hs-form .hs-button {
+        .hs-form-frame .hs-submit input {
             background: linear-gradient(45deg, #00f5ff, #8a2be2) !important;
             border: none !important;
-            border-radius: 12px !important;
-            padding: 16px 32px !important;
+            border-radius: 25px !important;
             color: white !important;
+            padding: 15px 30px !important;
+            font-size: 18px !important;
             font-weight: 700 !important;
-            font-size: 16px !important;
             cursor: pointer !important;
             transition: all 0.3s ease !important;
             width: 100% !important;
-            margin-top: 20px !important;
         }
 
-        .hs-form .hs-button:hover {
-            transform: translateY(-2px) !important;
-            box-shadow: 0 10px 20px rgba(0, 245, 255, 0.3) !important;
+        .hs-form-frame .hs-submit input:hover {
+            transform: translateY(-3px) !important;
+            box-shadow: 0 15px 30px rgba(0, 245, 255, 0.4) !important;
         }
 
-        .hs-form .hs-form-required {
+        .hs-form-frame .hs-field-desc {
+            color: rgba(255, 255, 255, 0.7) !important;
+            font-size: 14px !important;
+        }
+
+        .hs-form-frame .hs-error-msgs {
             color: #ff6b6b !important;
-        }
-
-        .hs-form .hs-error-msg {
-            color: #ff6b6b !important;
-            font-size: 12px !important;
-            margin-top: 4px !important;
-        }
-
-        .hs-form .hs-richtext {
-            color: rgba(255, 255, 255, 0.8) !important;
         }
 
         .pulse-animation {
@@ -280,46 +277,9 @@
             box-shadow: 0 15px 30px rgba(0, 245, 255, 0.2);
         }
 
-        .terms-section {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 245, 255, 0.2);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .terms-checkbox {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-top: 15px;
-        }
-
-        .terms-checkbox input[type="checkbox"] {
-            margin-top: 4px;
-            transform: scale(1.2);
-            accent-color: #00f5ff;
-        }
-
-        .terms-text {
-            font-size: 14px;
-            line-height: 1.5;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .terms-links {
-            color: #00f5ff;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-        .terms-links:hover {
-            color: #8a2be2;
-        }
-
         @media (max-width: 768px) {
             .hero-title { font-size: 2.5rem; }
-            .form-container { padding: 2rem 1.5rem; }
+            .form-container { padding: 1.5rem; }
             .service-card:hover { transform: none; }
         }
     </style>
@@ -462,38 +422,8 @@
                 </p>
             </div>
 
-            <div class="form-container neon-glow">
-                <div class="text-center mb-8">
-                    <h3 class="text-2xl font-bold text-cyan-400 mb-4">
-                        <i class="fas fa-calendar-check mr-2"></i>Solicita tu Consulta Gratuita
-                    </h3>
-                    <p class="opacity-90">Completa el formulario y nuestro equipo se contactará contigo en menos de 24 horas</p>
-                </div>
-
-                <!-- Formulario HubSpot Embebido -->
+            <div class="form-container">
                 <div class="hs-form-frame" data-region="na1" data-form-id="6157931f-6627-430f-9349-26e263635274" data-portal-id="23647212"></div>
-
-                <!-- Términos y Condiciones -->
-                <div class="terms-section">
-                    <h4 class="text-lg font-semibold text-cyan-400 mb-3">
-                        <i class="fas fa-shield-alt mr-2"></i>Protección de Datos
-                    </h4>
-                    <div class="terms-checkbox">
-                        <input type="checkbox" id="terms-checkbox" required>
-                        <label for="terms-checkbox" class="terms-text">
-                            Acepto que Konektor Chile procese mis datos personales para contactarme sobre sus servicios. 
-                            Entiendo que puedo retirar mi consentimiento en cualquier momento contactando a 
-                            <span class="terms-links">sebastian@konektorgroup.com</span>. 
-                            Mis datos serán tratados conforme a la 
-                            <span class="terms-links" onclick="showTermsModal()">Política de Privacidad</span> y 
-                            <span class="terms-links" onclick="showTermsModal()">Términos de Servicio</span>.
-                        </label>
-                    </div>
-                    <div class="mt-4 text-sm opacity-70">
-                        <i class="fas fa-lock mr-1"></i>
-                        Tus datos están protegidos con encriptación SSL y nunca serán compartidos con terceros sin tu consentimiento.
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -524,34 +454,6 @@
         </div>
     </footer>
 
-    <!-- Modal de Términos y Condiciones -->
-    <div id="termsModal" class="fixed inset-0 bg-black bg-opacity-75 hidden items-center justify-center z-50" onclick="closeTermsModal()">
-        <div class="glass-morphism max-w-2xl max-h-[80vh] overflow-y-auto p-8 m-4" onclick="event.stopPropagation()">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold gradient-text">Términos y Condiciones</h3>
-                <button onclick="closeTermsModal()" class="text-2xl hover:text-red-400">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="text-sm leading-relaxed space-y-4">
-                <h4 class="text-lg font-semibold text-cyan-400">1. Recopilación de Datos</h4>
-                <p>Konektor Chile recopila información personal únicamente para brindar servicios de consultoría en tecnologías inmersivas y contactar a potenciales clientes.</p>
-                
-                <h4 class="text-lg font-semibold text-cyan-400">2. Uso de Información</h4>
-                <p>Los datos proporcionados serán utilizados exclusivamente para contactarte sobre nuestros servicios de Metaverso, IA y transformación digital.</p>
-                
-                <h4 class="text-lg font-semibold text-cyan-400">3. Protección de Datos</h4>
-                <p>Implementamos medidas de seguridad técnicas y organizativas para proteger tu información personal contra acceso no autorizado.</p>
-                
-                <h4 class="text-lg font-semibold text-cyan-400">4. Derechos del Usuario</h4>
-                <p>Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición contactando a sebastian@konektorgroup.com</p>
-                
-                <h4 class="text-lg font-semibold text-cyan-400">5. Contacto</h4>
-                <p>Para cualquier consulta sobre el tratamiento de datos: sebastian@konektorgroup.com | +56 9 5894 7607</p>
-            </div>
-        </div>
-    </div>
-
     <script>
         // Crear partículas
         function createParticles() {
@@ -574,17 +476,6 @@
             });
         }
 
-        // Modal de términos
-        function showTermsModal() {
-            document.getElementById('termsModal').classList.remove('hidden');
-            document.getElementById('termsModal').classList.add('flex');
-        }
-
-        function closeTermsModal() {
-            document.getElementById('termsModal').classList.add('hidden');
-            document.getElementById('termsModal').classList.remove('flex');
-        }
-
         // Efectos parallax simples
         window.addEventListener('scroll', () => {
             const scroll = window.pageYOffset;
@@ -597,28 +488,6 @@
         // Inicializar
         document.addEventListener('DOMContentLoaded', function() {
             createParticles();
-            
-            // Verificar que el checkbox de términos esté marcado antes del envío
-            const checkTermsBeforeSubmit = () => {
-                const checkbox = document.getElementById('terms-checkbox');
-                const hsForm = document.querySelector('.hs-form');
-                
-                if (hsForm && checkbox) {
-                    const submitButton = hsForm.querySelector('.hs-button');
-                    if (submitButton) {
-                        submitButton.addEventListener('click', function(e) {
-                            if (!checkbox.checked) {
-                                e.preventDefault();
-                                alert('Por favor acepta los términos y condiciones para continuar.');
-                                return false;
-                            }
-                        });
-                    }
-                }
-            };
-
-            // Esperar a que el formulario HubSpot se cargue
-            setTimeout(checkTermsBeforeSubmit, 2000);
         });
 
         // Navegación suave
