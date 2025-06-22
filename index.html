@@ -6,7 +6,8 @@
     <title>Konektor Chile - Revolución Digital en el Metaverso</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
     <style>
         * {
             margin: 0;
@@ -16,17 +17,14 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #0f0f0f 100%);
-            color: #ffffff;
+            background: linear-gradient(135deg, #0a0a23, #1a1a40, #2d1b69, #4c1d95);
+            color: white;
             overflow-x: hidden;
+            position: relative;
         }
 
-        .orbitron {
-            font-family: 'Orbitron', monospace;
-        }
-
-        /* Efectos 3D y Animaciones */
-        .floating-particles {
+        /* Partículas 3D */
+        .particles {
             position: fixed;
             top: 0;
             left: 0;
@@ -38,69 +36,93 @@
 
         .particle {
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #00ffff;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(45deg, #60a5fa, #a78bfa, #f59e0b);
             border-radius: 50%;
-            animation: float 20s infinite linear;
+            animation: float 8s infinite ease-in-out;
+            box-shadow: 0 0 10px rgba(96, 165, 250, 0.8);
         }
 
         @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(360deg);
-                opacity: 0;
-            }
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            25% { transform: translateY(-20px) rotate(90deg); opacity: 1; }
+            50% { transform: translateY(-40px) rotate(180deg); opacity: 0.8; }
+            75% { transform: translateY(-20px) rotate(270deg); opacity: 1; }
         }
 
-        .hero-3d {
+        /* Efectos de parallax */
+        .parallax-container {
+            position: relative;
             transform-style: preserve-3d;
-            animation: heroFloat 6s ease-in-out infinite;
         }
 
-        @keyframes heroFloat {
-            0%, 100% { transform: rotateX(0deg) rotateY(0deg) translateZ(0px); }
-            50% { transform: rotateX(5deg) rotateY(2deg) translateZ(20px); }
+        .parallax-element {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, rgba(96, 165, 250, 0.3), rgba(167, 139, 250, 0.3));
+            border-radius: 50%;
+            filter: blur(1px);
+            animation: parallaxFloat 10s infinite ease-in-out;
         }
 
+        @keyframes parallaxFloat {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotateZ(0deg); }
+            25% { transform: translateY(-30px) translateX(20px) rotateZ(90deg); }
+            50% { transform: translateY(-60px) translateX(-20px) rotateZ(180deg); }
+            75% { transform: translateY(-30px) translateX(30px) rotateZ(270deg); }
+        }
+
+        /* Efectos 3D para tarjetas */
         .card-3d {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             transform-style: preserve-3d;
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-3d::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
         }
 
         .card-3d:hover {
-            transform: rotateY(15deg) rotateX(10deg) translateZ(50px);
-            box-shadow: 0 30px 60px rgba(0, 255, 255, 0.3);
+            transform: rotateY(10deg) rotateX(10deg) translateZ(20px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(96, 165, 250, 0.3);
         }
 
+        .card-3d:hover::before {
+            opacity: 1;
+        }
+
+        /* Efectos de neon */
         .neon-text {
-            text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff, 0 0 20px #00ffff;
-            animation: neonPulse 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 10px rgba(96, 165, 250, 0.8), 0 0 20px rgba(96, 165, 250, 0.6), 0 0 30px rgba(96, 165, 250, 0.4);
         }
 
-        @keyframes neonPulse {
-            from { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff, 0 0 20px #00ffff; }
-            to { text-shadow: 0 0 2px #00ffff, 0 0 5px #00ffff, 0 0 8px #00ffff, 0 0 12px #00ffff; }
+        .neon-border {
+            box-shadow: 0 0 20px rgba(96, 165, 250, 0.5), inset 0 0 20px rgba(96, 165, 250, 0.1);
         }
 
-        .gradient-border {
-            background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00, #00ffff);
+        /* Gradientes animados */
+        .animated-gradient {
+            background: linear-gradient(45deg, #60a5fa, #a78bfa, #f59e0b, #ef4444);
             background-size: 400% 400%;
-            animation: gradientShift 3s ease infinite;
-            padding: 2px;
-            border-radius: 12px;
+            animation: gradientShift 8s ease infinite;
         }
 
         @keyframes gradientShift {
@@ -109,95 +131,48 @@
             100% { background-position: 0% 50%; }
         }
 
-        .geometric-bg {
+        /* Botones con efectos 3D */
+        .btn-3d {
+            background: linear-gradient(45deg, #3b82f6, #6366f1);
+            border: none;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .btn-3d::before {
+            content: '';
             position: absolute;
+            top: 0;
+            left: -100%;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
-            animation: geometricMove 10s ease-in-out infinite;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
         }
 
-        @keyframes geometricMove {
-            0%, 100% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.1); }
+        .btn-3d:hover {
+            transform: translateY(-3px) rotateX(5deg);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(96, 165, 250, 0.4);
         }
 
-        .parallax-element {
-            transition: transform 0.1s ease-out;
+        .btn-3d:hover::before {
+            left: 100%;
         }
 
-        /* Formulario Styles */
-        .form-container {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(0, 255, 255, 0.3);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
-        }
-
-        .form-input {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(0, 255, 255, 0.3);
-            color: white;
-            border-radius: 10px;
-            padding: 12px 16px;
-            width: 100%;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #00ffff;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .form-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .btn-primary {
-            background: linear-gradient(45deg, #00ffff, #ff00ff);
-            border: none;
-            border-radius: 10px;
-            padding: 12px 24px;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            transform-style: preserve-3d;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
-        }
-
-        /* Blog Cards */
-        .blog-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 1.5rem;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-10px) rotateX(5deg);
-            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .fade-in {
+        /* Animaciones de entrada */
+        .fade-in-up {
             opacity: 0;
             transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
+            animation: fadeInUp 1s ease forwards;
         }
 
         @keyframes fadeInUp {
@@ -207,261 +182,395 @@
             }
         }
 
-        .stagger-1 { animation-delay: 0.1s; }
-        .stagger-2 { animation-delay: 0.2s; }
-        .stagger-3 { animation-delay: 0.3s; }
-        .stagger-4 { animation-delay: 0.4s; }
-        .stagger-5 { animation-delay: 0.5s; }
-        .stagger-6 { animation-delay: 0.6s; }
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: fadeInLeft 1s ease forwards;
+        }
 
-        /* Responsive */
+        @keyframes fadeInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            animation: fadeInRight 1s ease forwards;
+        }
+
+        @keyframes fadeInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Delays para animaciones escalonadas */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+
+        /* Navegación fija */
+        .fixed-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        /* Efectos de levitación */
+        .levitate {
+            animation: levitate 3s ease-in-out infinite;
+        }
+
+        @keyframes levitate {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Grid de servicios */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            perspective: 1000px;
+        }
+
+        /* Blog cards */
+        .blog-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Formulario HubSpot */
+        #hubspotForm {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Popup de éxito */
+        .success-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: rgba(16, 185, 129, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+            z-index: 10000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            min-width: 300px;
+        }
+
+        .success-popup.show {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .success-popup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(5, 150, 105, 0.3));
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        /* Responsividad */
         @media (max-width: 768px) {
-            .card-3d:hover {
-                transform: scale(1.05);
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .card-3d {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Floating Particles -->
-    <div class="floating-particles" id="particles"></div>
+    <!-- Partículas flotantes -->
+    <div class="particles" id="particles"></div>
 
-    <!-- Geometric Background -->
-    <div class="geometric-bg"></div>
+    <!-- Elementos parallax -->
+    <div class="parallax-container">
+        <div class="parallax-element" style="top: 10%; left: 10%; animation-delay: 0s;"></div>
+        <div class="parallax-element" style="top: 20%; right: 15%; animation-delay: 2s;"></div>
+        <div class="parallax-element" style="top: 60%; left: 5%; animation-delay: 4s;"></div>
+        <div class="parallax-element" style="bottom: 10%; right: 10%; animation-delay: 6s;"></div>
+    </div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-black bg-opacity-50 backdrop-filter backdrop-blur-lg">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <div class="orbitron text-2xl font-bold neon-text">KONEKTOR</div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#inicio" class="hover:text-cyan-400 transition-colors">Inicio</a>
-                    <a href="#servicios" class="hover:text-cyan-400 transition-colors">Servicios</a>
-                    <a href="#blog" class="hover:text-cyan-400 transition-colors">Blog</a>
-                    <a href="#contacto" class="hover:text-cyan-400 transition-colors">Contacto</a>
-                </div>
+    <!-- Navegación -->
+    <nav class="fixed-nav px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold neon-text">
+                <i class="fas fa-cube mr-2"></i>Konektor Chile
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#inicio" class="hover:text-blue-400 transition-colors">Inicio</a>
+                <a href="#servicios" class="hover:text-blue-400 transition-colors">Servicios</a>
+                <a href="#blog" class="hover:text-blue-400 transition-colors">Blog</a>
+                <a href="#contacto" class="hover:text-blue-400 transition-colors">Contacto</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="inicio" class="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div class="container mx-auto px-6 text-center hero-3d fade-in">
-            <h1 class="orbitron text-5xl md:text-7xl font-black mb-8 neon-text stagger-1">
-                REVOLUCIÓN DIGITAL
+    <section id="inicio" class="min-h-screen flex items-center justify-center px-6 relative">
+        <div class="max-w-4xl mx-auto text-center z-10">
+            <h1 class="text-6xl md:text-8xl font-black mb-6 neon-text fade-in-up">
+                REVOLUCIÓN
+                <span class="animated-gradient bg-clip-text text-transparent">DIGITAL</span>
             </h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-gray-300 stagger-2">
-                Somos la empresa #1 para entrar al <span class="text-cyan-400 font-bold">Metaverso</span> en LATAM. 
-                Transformamos tu negocio con IA, Realidad Virtual y tecnologías inmersivas.
+            <p class="text-xl md:text-2xl mb-8 opacity-80 fade-in-up delay-200">
+                Somos la empresa #1 para entrar al <span class="neon-text">METAVERSO</span> 
+                y liderar la transformación con <span class="neon-text">INTELIGENCIA ARTIFICIAL</span>
             </p>
-            <div class="flex flex-col md:flex-row gap-6 justify-center items-center stagger-3">
-                <button onclick="scrollToSection('contacto')" class="btn-primary px-8 py-4 text-lg">
-                    <i class="fas fa-rocket mr-2"></i>
-                    Transformar Mi Empresa
+            <div class="flex flex-col md:flex-row gap-4 justify-center fade-in-up delay-400">
+                <button class="btn-3d">
+                    <i class="fas fa-rocket mr-2"></i>Transformar Mi Empresa
                 </button>
-                <button onclick="scrollToSection('servicios')" class="border-2 border-cyan-400 text-cyan-400 px-8 py-4 rounded-lg hover:bg-cyan-400 hover:text-black transition-all">
-                    Conocer Servicios
+                <button class="btn-3d bg-transparent border-2 border-blue-500 hover:bg-blue-500">
+                    <i class="fas fa-play mr-2"></i>Ver Demo
                 </button>
+            </div>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 fade-in-up delay-600">
+                <div class="card-3d text-center levitate">
+                    <div class="text-4xl font-bold neon-text">21.2M</div>
+                    <div class="text-sm opacity-70">Usuarios Alcanzados</div>
+                </div>
+                <div class="card-3d text-center levitate delay-200">
+                    <div class="text-4xl font-bold neon-text">640%</div>
+                    <div class="text-sm opacity-70">Crecimiento VR LATAM</div>
+                </div>
+                <div class="card-3d text-center levitate delay-400">
+                    <div class="text-4xl font-bold neon-text">200%</div>
+                    <div class="text-sm opacity-70">ROI Promedio</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Servicios -->
-    <section id="servicios" class="py-20 relative">
-        <div class="container mx-auto px-6">
-            <h2 class="orbitron text-4xl font-bold text-center mb-16 neon-text fade-in">
-                NUESTROS SERVICIOS
+    <section id="servicios" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-5xl font-bold text-center mb-16 neon-text fade-in-up">
+                <i class="fas fa-cogs mr-4"></i>Nuestros Servicios
             </h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="card-3d rounded-2xl p-8 fade-in stagger-1">
-                    <div class="text-center">
-                        <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center">
-                            <i class="fas fa-vr-cardboard text-2xl text-white"></i>
-                        </div>
-                        <h3 class="orbitron text-2xl font-bold mb-4 text-cyan-400">METAVERSO</h3>
-                        <p class="text-gray-300 mb-6">Creamos experiencias inmersivas que conectan tu marca con 21.2M+ usuarios activos. Roblox, VR, AR y mundos virtuales.</p>
-                        <ul class="text-left text-sm text-gray-400 space-y-2">
-                            <li>✓ Experiencias en Roblox</li>
-                            <li>✓ Mundos virtuales 3D</li>
-                            <li>✓ Eventos inmersivos</li>
-                            <li>✓ ROI +200% comprobado</li>
-                        </ul>
+            <div class="services-grid">
+                <div class="card-3d fade-in-left delay-100">
+                    <div class="text-6xl mb-4 neon-text">
+                        <i class="fas fa-vr-cardboard"></i>
                     </div>
+                    <h3 class="text-2xl font-bold mb-4">Metaverso & VR/AR</h3>
+                    <p class="opacity-80 mb-6">Creamos experiencias inmersivas que conectan tu marca con la Gen Z. Más de 97.8M usuarios activos esperan por tu contenido.</p>
+                    <ul class="space-y-2 text-sm opacity-70">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Desarrollo en Roblox</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Experiencias AR/VR</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Mundos virtuales personalizados</li>
+                    </ul>
                 </div>
 
-                <div class="card-3d rounded-2xl p-8 fade-in stagger-2">
-                    <div class="text-center">
-                        <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center">
-                            <i class="fas fa-brain text-2xl text-white"></i>
-                        </div>
-                        <h3 class="orbitron text-2xl font-bold mb-4 text-purple-400">INTELIGENCIA ARTIFICIAL</h3>
-                        <p class="text-gray-300 mb-6">Implementamos IA personalizada que habla el idioma de tu negocio. Automatización, análisis y generación de contenido.</p>
-                        <ul class="text-left text-sm text-gray-400 space-y-2">
-                            <li>✓ IA personalizada empresarial</li>
-                            <li>✓ Automatización de procesos</li>
-                            <li>✓ Análisis predictivo</li>
-                            <li>✓ Generación de contenido</li>
-                        </ul>
+                <div class="card-3d fade-in-up delay-200">
+                    <div class="text-6xl mb-4 neon-text">
+                        <i class="fas fa-brain"></i>
                     </div>
+                    <h3 class="text-2xl font-bold mb-4">Inteligencia Artificial</h3>
+                    <p class="opacity-80 mb-6">Implementamos IA que crea conocimiento genuinamente nuevo. Desde Claude Code hasta Midjourney, dominamos las herramientas del futuro.</p>
+                    <ul class="space-y-2 text-sm opacity-70">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>IA Personalizada</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Automatización inteligente</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Generación de contenido</li>
+                    </ul>
                 </div>
 
-                <div class="card-3d rounded-2xl p-8 fade-in stagger-3">
-                    <div class="text-center">
-                        <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-green-400 to-teal-500 rounded-full flex items-center justify-center">
-                            <i class="fas fa-rocket text-2xl text-white"></i>
-                        </div>
-                        <h3 class="orbitron text-2xl font-bold mb-4 text-green-400">TRANSFORMACIÓN DIGITAL</h3>
-                        <p class="text-gray-300 mb-6">Consultoría estratégica para llevar tu empresa al futuro. Desde la estrategia hasta la implementación completa.</p>
-                        <ul class="text-left text-sm text-gray-400 space-y-2">
-                            <li>✓ Consultoría estratégica</li>
-                            <li>✓ Capacitación de equipos</li>
-                            <li>✓ Implementación tecnológica</li>
-                            <li>✓ Soporte continuo</li>
-                        </ul>
+                <div class="card-3d fade-in-right delay-300">
+                    <div class="text-6xl mb-4 neon-text">
+                        <i class="fas fa-rocket"></i>
                     </div>
+                    <h3 class="text-2xl font-bold mb-4">Transformación Digital</h3>
+                    <p class="opacity-80 mb-6">Convertimos tecnología emergente en ventajas reales. Soporte 24/7 y ROI medible garantizado.</p>
+                    <ul class="space-y-2 text-sm opacity-70">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Consultoría especializada</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Capacitación de equipos</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Implementación integral</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Blog Section -->
-    <section id="blog" class="py-20 relative">
-        <div class="container mx-auto px-6">
-            <h2 class="orbitron text-4xl font-bold text-center mb-16 neon-text fade-in">
-                INSIGHTS & TENDENCIAS
+    <section id="blog" class="py-20 px-6 bg-black bg-opacity-20">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-5xl font-bold text-center mb-16 neon-text fade-in-up">
+                <i class="fas fa-newspaper mr-4"></i>Insights & Tendencias
             </h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <article class="blog-card fade-in stagger-1">
-                    <div class="mb-4">
-                        <span class="text-xs bg-cyan-500 text-black px-3 py-1 rounded-full">IA</span>
-                        <span class="text-xs text-gray-400 ml-2">Enero 2025</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-cyan-400">IA que Crea Conocimiento Llega en 2026</h3>
-                    <p class="text-gray-300 text-sm mb-4">Sam Altman revela que próximamente veremos sistemas de IA capaces de generar insights completamente novedosos, transformando sectores clave de LATAM como minería, agricultura y salud.</p>
-                    <a href="#" class="text-cyan-400 text-sm hover:underline">Leer más →</a>
-                </article>
-
-                <article class="blog-card fade-in stagger-2">
-                    <div class="mb-4">
-                        <span class="text-xs bg-purple-500 text-white px-3 py-1 rounded-full">METAVERSO</span>
-                        <span class="text-xs text-gray-400 ml-2">Enero 2025</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-purple-400">Roblox Rompe Récords: 21.2M Usuarios</h3>
-                    <p class="text-gray-300 text-sm mb-4">Una sola experiencia en Roblox alcanzó 21.2 millones de usuarios en un fin de semana, superando a Netflix y Twitch juntos. El metaverso ya es realidad.</p>
-                    <a href="#" class="text-purple-400 text-sm hover:underline">Leer más →</a>
-                </article>
-
-                <article class="blog-card fade-in stagger-3">
-                    <div class="mb-4">
-                        <span class="text-xs bg-pink-500 text-white px-3 py-1 rounded-full">VIDEO IA</span>
-                        <span class="text-xs text-gray-400 ml-2">Enero 2025</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-pink-400">Revolución de la IA con Midjourney</h3>
-                    <p class="text-gray-300 text-sm mb-4">Midjourney lanza su modelo de generación de video por IA, transformando imágenes en clips animados en segundos. Una revolución para el marketing y la creatividad.</p>
-                    <a href="#" class="text-pink-400 text-sm hover:underline">Leer más →</a>
-                </article>
-
-                <article class="blog-card fade-in stagger-4">
-                    <div class="mb-4">
-                        <span class="text-xs bg-blue-500 text-white px-3 py-1 rounded-full">MICROSOFT</span>
-                        <span class="text-xs text-gray-400 ml-2">Enero 2025</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-blue-400">Microsoft BenchmarkQED</h3>
-                    <p class="text-gray-300 text-sm mb-4">Microsoft lanza BenchmarkQED, herramienta revolucionaria para medir automáticamente qué tan bien funciona tu IA personalizada empresarial.</p>
-                    <a href="#" class="text-blue-400 text-sm hover:underline">Leer más →</a>
-                </article>
-
-                <article class="blog-card fade-in stagger-5">
-                    <div class="mb-4">
-                        <span class="text-xs bg-yellow-500 text-black px-3 py-1 rounded-full">HARDWARE</span>
-                        <span class="text-xs text-gray-400 ml-2">Enero 2025</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-yellow-400">Chips de IA No Binarios</h3>
-                    <p class="text-gray-300 text-sm mb-4">China inicia la producción masiva del primer chip de IA no binario del mundo, rompiendo las barreras de la computación tradicional y abriendo nuevas oportunidades para LATAM.</p>
-                    <a href="#" class="text-yellow-400 text-sm hover:underline">Leer más →</a>
-                </article>
-
-                <article class="blog-card fade-in stagger-6">
-                    <div class="mb-4">
-                        <span class="text-xs bg-green-500 text-black px-3 py-1 rounded-full">PRODUCTIVIDAD</span>
-                        <span class="text-xs text-gray-400 ml-2">Enero 2025</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-green-400">Claude Code Transforma Productividad</h3>
-                    <p class="text-gray-300 text-sm mb-4">Anthropic revela cómo Claude Code está transformando la productividad empresarial con resultados impresionantes: 2-4x más velocidad en desarrollo y 80% menos tiempo en investigación.</p>
-                    <a href="#" class="text-green-400 text-sm hover:underline">Leer más →</a>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="py-20 relative">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8 text-center">
-                <div class="card-3d rounded-2xl p-6 fade-in stagger-1">
-                    <div class="text-4xl font-bold text-cyan-400 mb-2">21.2M+</div>
-                    <div class="text-gray-300">Usuarios Alcanzados</div>
-                </div>
-                <div class="card-3d rounded-2xl p-6 fade-in stagger-2">
-                    <div class="text-4xl font-bold text-purple-400 mb-2">200%</div>
-                    <div class="text-gray-300">ROI Promedio</div>
-                </div>
-                <div class="card-3d rounded-2xl p-6 fade-in stagger-3">
-                    <div class="text-4xl font-bold text-pink-400 mb-2">50+</div>
-                    <div class="text-gray-300">Proyectos Exitosos</div>
-                </div>
-                <div class="card-3d rounded-2xl p-6 fade-in stagger-4">
-                    <div class="text-4xl font-bold text-green-400 mb-2">95%</div>
-                    <div class="text-gray-300">Satisfacción Cliente</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contacto" class="py-20 relative">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="orbitron text-4xl font-bold text-center mb-16 neon-text fade-in">
-                    TRANSFORMA TU EMPRESA HOY
-                </h2>
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="fade-in stagger-1">
-                        <h3 class="text-2xl font-bold mb-6 text-cyan-400">¿Listo para liderar el futuro?</h3>
-                        <p class="text-gray-300 mb-6">Obtén una consulta gratuita y descubre cómo las tecnologías de vanguardia pueden transformar tu negocio. Únete a las empresas que ya están liderando la revolución digital.</p>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <i class="fas fa-envelope text-cyan-400 mr-3"></i>
-                                <span>sebastian@konektorgroup.com</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-phone text-cyan-400 mr-3"></i>
-                                <span>+56 9 58947607</span>
-                            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <article class="blog-card fade-in-up delay-100">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-brain text-blue-400 text-2xl mr-3"></i>
+                            <span class="text-sm opacity-70">IA & Innovación</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">IA que Crea Conocimiento Llega en 2026</h3>
+                        <p class="opacity-80 mb-4 text-sm">Sam Altman revela sistemas de IA capaces de generar insights completamente novedosos. La revolución transformará sectores clave de LATAM...</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs opacity-60">Hace 2 días</span>
+                            <button class="text-blue-400 hover:text-blue-300 text-sm">Leer más <i class="fas fa-arrow-right ml-1"></i></button>
                         </div>
                     </div>
-                    <div class="form-container fade-in stagger-2">
-                        <form id="contactForm" class="space-y-6">
-                            <div>
-                                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" class="form-input" required>
-                            </div>
-                            <div>
-                                <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono" class="form-input" required>
-                            </div>
-                            <div>
-                                <input type="email" id="email" name="email" placeholder="Tu email corporativo" class="form-input" required>
-                            </div>
-                            <div class="flex items-center">
-                                <input type="checkbox" id="condiciones" name="condiciones" class="mr-3" required>
-                                <label for="condiciones" class="text-sm text-gray-300">
-                                    Acepto las condiciones y políticas de privacidad
-                                </label>
-                            </div>
-                            <button type="submit" class="btn-primary w-full">
-                                <i class="fas fa-rocket mr-2"></i>
-                                Solicitar Consulta Gratuita
-                            </button>
-                        </form>
+                </article>
+
+                <article class="blog-card fade-in-up delay-200">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-gamepad text-purple-400 text-2xl mr-3"></i>
+                            <span class="text-sm opacity-70">Metaverso</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Roblox Rompe Récords: 21.2M Usuarios</h3>
+                        <p class="opacity-80 mb-4 text-sm">Una sola experiencia superó a Netflix y Twitch juntos. El metaverso ya no es futuro, es el presente donde viven las nuevas generaciones...</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs opacity-60">Hace 5 días</span>
+                            <button class="text-blue-400 hover:text-blue-300 text-sm">Leer más <i class="fas fa-arrow-right ml-1"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card fade-in-up delay-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-video text-yellow-400 text-2xl mr-3"></i>
+                            <span class="text-sm opacity-70">IA Generativa</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Revolución IA con Midjourney</h3>
+                        <p class="opacity-80 mb-4 text-sm">Midjourney lanza generación de video por IA que transforma imágenes en clips animados en segundos. Esto redefine la creatividad empresarial...</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs opacity-60">Hace 1 semana</span>
+                            <button class="text-blue-400 hover:text-blue-300 text-sm">Leer más <i class="fas fa-arrow-right ml-1"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card fade-in-up delay-400">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-microsoft text-blue-400 text-2xl mr-3"></i>
+                            <span class="text-sm opacity-70">Empresa</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Microsoft BenchmarkQED</h3>
+                        <p class="opacity-80 mb-4 text-sm">Personalización de IA empresarial da un salto gigante. Ahora puedes entrenar inteligencia artificial perfectamente adaptada a tu empresa...</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs opacity-60">Hace 1 semana</span>
+                            <button class="text-blue-400 hover:text-blue-300 text-sm">Leer más <i class="fas fa-arrow-right ml-1"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card fade-in-up delay-500">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-microchip text-red-400 text-2xl mr-3"></i>
+                            <span class="text-sm opacity-70">Hardware</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Chips de IA No Binarios</h3>
+                        <p class="opacity-80 mb-4 text-sm">China inicia producción masiva del primer chip de IA no binario del mundo. Una ventana única de oportunidad para LATAM en la adopción tecnológica...</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs opacity-60">Hace 2 semanas</span>
+                            <button class="text-blue-400 hover:text-blue-300 text-sm">Leer más <i class="fas fa-arrow-right ml-1"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card fade-in-up delay-600">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-code text-green-400 text-2xl mr-3"></i>
+                            <span class="text-sm opacity-70">Productividad</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Claude Code Transforma Productividad</h3>
+                        <p class="opacity-80 mb-4 text-sm">Anthropic revela cómo Claude Code está transformando equipos internos. 2-4x más velocidad y 70% de código escrito automáticamente...</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs opacity-60">Hace 2 semanas</span>
+                            <button class="text-blue-400 hover:text-blue-300 text-sm">Leer más <i class="fas fa-arrow-right ml-1"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-5xl font-bold text-center mb-16 neon-text fade-in-up">
+                <i class="fas fa-rocket mr-4"></i>¿Listo para la Transformación Digital?
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in-left">
+                    <h3 class="text-3xl font-bold mb-6">Conecta con el Futuro</h3>
+                    <p class="text-lg opacity-80 mb-8">
+                        Únete a las empresas que ya están liderando la revolución tecnológica en LATAM. 
+                        Obtén una consultoría personalizada y descubre cómo implementar Metaverso e IA en tu negocio.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-blue-400 text-xl mr-4"></i>
+                            <span>sebastian@konektorgroup.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-blue-400 text-xl mr-4"></i>
+                            <span>+56 9 58947607</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fab fa-instagram text-blue-400 text-xl mr-4"></i>
+                            <span>@konektorchile</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in-right">
+                    <div id="hubspotForm" class="neon-border">
+                        <!-- El formulario de HubSpot se cargará aquí -->
                     </div>
                 </div>
             </div>
@@ -469,139 +578,128 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 bg-black bg-opacity-50">
-        <div class="container mx-auto px-6 text-center">
-            <div class="orbitron text-2xl font-bold mb-6 neon-text">KONEKTOR CHILE</div>
-            <p class="text-gray-400 mb-6">Transformando el futuro de LATAM con tecnología de vanguardia</p>
-            <div class="flex justify-center space-x-6">
-                <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">
-                    <i class="fab fa-instagram text-2xl"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">
-                    <i class="fab fa-linkedin text-2xl"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">
-                    <i class="fab fa-twitter text-2xl"></i>
-                </a>
+    <footer class="py-12 px-6 border-t border-gray-700">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="text-3xl font-bold neon-text mb-4">
+                <i class="fas fa-cube mr-2"></i>Konektor Chile
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-800 text-gray-500 text-sm">
-                © 2025 Konektor Chile. Todos los derechos reservados.
+            <p class="opacity-70 mb-6">Liderando la revolución digital en LATAM</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-2xl hover:text-blue-400 transition-colors"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-2xl hover:text-blue-400 transition-colors"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-2xl hover:text-blue-400 transition-colors"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 opacity-60">
+                <p>&copy; 2025 Konektor Chile. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- HubSpot Form Script -->
-    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+    <!-- Popup de éxito -->
+    <div id="successPopup" class="success-popup">
+        <div class="text-6xl mb-4">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">¡Mensaje Enviado!</h3>
+        <p>Nos pondremos en contacto contigo muy pronto para iniciar tu transformación digital.</p>
+    </div>
 
     <script>
-        // Crear partículas flotantes
+        // Crear partículas
         function createParticles() {
-            const container = document.getElementById('particles');
+            const particlesContainer = document.getElementById('particles');
             const particleCount = 50;
-
+            
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 20 + 's';
-                particle.style.animationDuration = (Math.random() * 20 + 10) + 's';
-                container.appendChild(particle);
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                particlesContainer.appendChild(particle);
             }
         }
 
-        // Efecto parallax
+        // Efectos parallax
         function handleParallax() {
-            const elements = document.querySelectorAll('.parallax-element');
-            
-            window.addEventListener('mousemove', (e) => {
-                const x = e.clientX / window.innerWidth;
-                const y = e.clientY / window.innerHeight;
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.parallax-element');
                 
-                elements.forEach(el => {
-                    const speed = el.dataset.speed || 0.5;
-                    const xOffset = (x - 0.5) * speed * 20;
-                    const yOffset = (y - 0.5) * speed * 20;
-                    
-                    el.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+                parallaxElements.forEach((element, index) => {
+                    const speed = 0.5 + (index * 0.1);
+                    element.style.transform = `translateY(${scrolled * speed}px)`;
                 });
             });
         }
 
-        // Scroll suave
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Animaciones al hacer scroll
+        // Animaciones de scroll
         function handleScrollAnimations() {
-            const elements = document.querySelectorAll('.fade-in');
-            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
+                        entry.target.style.animationPlayState = 'running';
                     }
                 });
-            }, { threshold: 0.1 });
-            
-            elements.forEach(el => observer.observe(el));
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
         }
 
-        // Manejar formulario
-        function handleForm() {
-            const form = document.getElementById('contactForm');
+        // Mostrar mensaje de éxito
+        function showSuccessMessage() {
+            const popup = document.getElementById('successPopup');
+            popup.classList.add('show');
             
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const formData = {
-                    nombre: document.getElementById('nombre').value,
-                    telefono: document.getElementById('telefono').value,
-                    email: document.getElementById('email').value,
-                    condiciones: document.getElementById('condiciones').checked
-                };
-                
-                // Integración con HubSpot
-                if (window.hbspt) {
-                    window.hbspt.forms.create({
-                        region: "na1",
-                        portalId: "23647212",
-                        formId: "aw9Kug4CRx6ynihlAya01g",
-                        target: '#hubspot-form',
-                        onFormSubmit: function($form) {
-                            alert('¡Gracias! Nos pondremos en contacto contigo pronto.');
-                            form.reset();
+            setTimeout(() => {
+                popup.classList.remove('show');
+            }, 3500);
+        }
+
+        // Inicializar HubSpot Form
+        function initHubSpotForm() {
+            if (window.hbspt) {
+                hbspt.forms.create({
+                    portalId: "23647212",
+                    formId: "6b0f4aba-0e02-471e-b29e-28650326b4d6",
+                    region: "na1",
+                    target: "#hubspotForm",
+                    onFormReady: function($form) {
+                        // El formulario está listo
+                        console.log('Formulario HubSpot cargado');
+                    },
+                    onFormSubmit: function($form) {
+                        // Mostrar indicador de envío
+                        const submitBtn = $form.find('input[type="submit"]');
+                        if (submitBtn.length) {
+                            submitBtn.val('ENVIANDO...');
                         }
-                    });
-                } else {
-                    // Fallback - envío directo
-                    fetch('https://forms.hubspot.com/uploads/form/v2/23647212/aw9Kug4CRx6ynihlAya01g', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        body: new URLSearchParams({
-                            'firstname': formData.nombre,
-                            'phone': formData.telefono,
-                            'email': formData.email,
-                            'consent_to_process': formData.condiciones ? 'true' : 'false'
-                        })
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            alert('¡Gracias! Nos pondremos en contacto contigo pronto.');
-                            form.reset();
-                        } else {
-                            alert('Hubo un error. Por favor, intenta nuevamente.');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Hubo un error. Por favor, intenta nuevamente.');
-                    });
-                }
-            });
+                    },
+                    onFormSubmitted: function() {
+                        // Mostrar mensaje de éxito
+                        showSuccessMessage();
+                        
+                        // Opción de agendar después de 2 segundos
+                        setTimeout(() => {
+                            if (confirm('¡Gracias por tu interés! ¿Te gustaría agendar una llamada con nuestro equipo ahora?')) {
+                                window.open('https://meetings.hubspot.com/sebastian592', '_blank');
+                            }
+                        }, 2000);
+                    }
+                });
+            } else {
+                // Reintentar si HubSpot no está listo
+                setTimeout(initHubSpotForm, 500);
+            }
         }
 
         // Inicializar todo
@@ -609,7 +707,7 @@
             createParticles();
             handleParallax();
             handleScrollAnimations();
-            handleForm();
+            initHubSpotForm();
         });
 
         // Smooth scroll para navegación
@@ -623,9 +721,6 @@
             });
         });
     </script>
-
-    <!-- Hidden div for HubSpot form -->
-    <div id="hubspot-form" style="display: none;"></div>
 </body>
 </html>
 
